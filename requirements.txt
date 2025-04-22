@@ -1,0 +1,15 @@
+transformers 
+accelerate 
+langchain 
+openai
+chromadb
+langchain-community
+tiktoken
+python-dotenv
+langchain_ollama
+streamlit
+streamlit_chat
+fastapi
+uvicorn[standard]
+pydantic
+openpyxl
