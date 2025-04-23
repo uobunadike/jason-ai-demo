@@ -7,3 +7,4 @@ langchain-community
 chromadb==0.6.3
 python-dotenv
 tiktoken
+langchain-ollama
