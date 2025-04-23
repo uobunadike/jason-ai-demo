@@ -7,7 +7,7 @@ azure_api_key = os.getenv("AZURE_OPENAI_API_KEY")
 azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
 azure_embedding_deployment = os.getenv("AZURE_OPENAI_EMBEDDING_DEPLOYMENT")
 azure_chat_deployment = os.getenv("AZURE_OPENAI_CHAT_DEPLOYMENT")
-azure_api_version = os.getenv("AZURE_OPENAI_API_VERSION"
+azure_api_version = os.getenv("AZURE_OPENAI_API_VERSION")
 
 # LangChain imports
 from langchain_openai import AzureOpenAIEmbeddings, AzureChatOpenAI
