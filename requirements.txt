@@ -1,15 +1,29 @@
-transformers 
-accelerate 
-langchain 
-openai
-chromadb
+# Core LangChain + OpenAI + Azure support
+langchain
 langchain-community
-tiktoken
-python-dotenv
+langchain-openai
 langchain_ollama
-streamlit
-streamlit_chat
+openai
+tiktoken
+
+# Vector store + embedding tools
+chromadb
+azure-search-documents
+
+# Model + LLM tools
+transformers
+accelerate
+
+# Web & app frameworks
 fastapi
 uvicorn[standard]
+streamlit
+streamlit_chat
+
+# Utilities
+python-dotenv
 pydantic
+rich
+
+# Excel support
 openpyxl
