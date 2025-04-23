@@ -18,6 +18,7 @@ accelerate
 fastapi
 uvicorn
 uvicorn[standard]
+gunicorn
 streamlit
 streamlit_chat
 
