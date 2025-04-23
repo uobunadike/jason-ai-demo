@@ -3,15 +3,18 @@ from dotenv import load_dotenv  # Load environment variables from a .env file
 
 # Load environment variables
 load_dotenv()
-openai_api_key = os.getenv("OPENAI_API_KEY")
+azure_api_key = os.getenv("AZURE_OPENAI_API_KEY")
+azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
+azure_embedding_deployment = os.getenv("AZURE_OPENAI_EMBEDDING_DEPLOYMENT")
+azure_chat_deployment = os.getenv("AZURE_OPENAI_CHAT_DEPLOYMENT")
+azure_api_version = os.getenv("AZURE_OPENAI_API_VERSION"
 
 # LangChain imports
-from langchain_openai import OpenAIEmbeddings
+from langchain_openai import AzureOpenAIEmbeddings, AzureChatOpenAI
 from langchain_community.vectorstores import Chroma
 from langchain.chains import RetrievalQA
 from langchain.prompts import PromptTemplate
 from langchain_ollama.llms import OllamaLLM
-from langchain_community.chat_models import ChatOpenAI
 from functools import lru_cache
 
 # ✅ Safety check to ensure vector store exists
@@ -22,9 +25,12 @@ if not os.path.exists("./chroma_db"):
 def get_vector_store():
     return Chroma(
         persist_directory="./chroma_db",
-        embedding_function=OpenAIEmbeddings(
-            openai_api_key=openai_api_key,
-            model="text-embedding-3-small"
+        embedding_function=AzureOpenAIEmbeddings(
+            api_key=azure_api_key,
+            azure_endpoint=azure_endpoint,
+           deployment=azure_embedding_deployment,
+           model=azure_embedding_deployment,
+         api_version=azure_api_version
         )
     )
 
@@ -34,7 +40,14 @@ def run(query: str, model_type: str = "ollama", model_name: str = "llama3.1") ->
     if model_type == "ollama":
         llm = OllamaLLM(model=model_name, temperature=0.3)
     else:
-        llm = ChatOpenAI(model=model_name, temperature=0.5, openai_api_key=openai_api_key)
+        llm = AzureChatOpenAI(
+            api_key=azure_api_key,
+    azure_endpoint=azure_endpoint,
+    deployment_name=azure_chat_deployment,
+    model=azure_chat_deployment,
+    api_version=azure_api_version,
+    temperature=0.5
+        )
 
     if query.strip().lower() in ["hi", "hello", "hey", "what's up?", "how are you?"]:
         return llm.predict(query)
@@ -51,7 +64,6 @@ Based on the extracted data, answer the question concisely using the format belo
 Context:
 {context}
 
-
 Question: {question}
 """
 
@@ -67,5 +79,4 @@ Question: {question}
         chain_type_kwargs={"prompt": prompt}
     )
 
-    return qa_chain.invoke({"query": query})['result']
-
+    return qa_chain.invoke({"query": query})['result'] 
