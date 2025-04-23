@@ -7,7 +7,7 @@ openai_api_key = os.getenv("OPENAI_API_KEY")
 
 # LangChain imports
 from langchain_openai import OpenAIEmbeddings
-from langchain_chroma import Chroma
+from langchain_community.vectorstores import Chroma
 from langchain.chains import RetrievalQA
 from langchain.prompts import PromptTemplate
 from langchain_ollama.llms import OllamaLLM
