@@ -17,6 +17,7 @@ accelerate
 # Web & app frameworks
 fastapi
 uvicorn
+uvicorn[standard]
 streamlit
 streamlit_chat
 
