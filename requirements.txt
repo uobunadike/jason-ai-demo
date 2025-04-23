@@ -16,7 +16,7 @@ accelerate
 
 # Web & app frameworks
 fastapi
-uvicorn[standard]
+uvicorn
 streamlit
 streamlit_chat
 
@@ -27,3 +27,4 @@ rich
 
 # Excel support
 openpyxl
+git 
