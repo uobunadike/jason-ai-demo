@@ -16,9 +16,9 @@ accelerate
 
 # Web & app frameworks
 fastapi
-uvicorn
-uvicorn[standard]
-gunicorn
+fastapi>=0.68.0
+uvicorn>=0.15.0
+gunicorn>=20.1.0
 streamlit
 streamlit_chat
 
