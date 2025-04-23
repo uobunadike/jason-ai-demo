@@ -63,7 +63,15 @@ def compact_query_endpoint(query: Query):
     except Exception as e:
         return {"error": str(e)}
 
+@app.get("/")
+def home():
+    return {"message": "RAG API is running. Use POST /query."}
+
+
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run("api:app", host="0.0.0.0", port=8000)
+
+
+
 
