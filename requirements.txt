@@ -1,32 +1,9 @@
-# Core LangChain + OpenAI + Azure support
-langchain
-langchain-community
-langchain-openai
-langchain_ollama
-openai
-tiktoken
-
-# Vector store + embedding tools
-chromadb
-azure-search-documents
-
-# Model + LLM tools
-transformers
-accelerate
-
-# Web & app frameworks
 fastapi
-fastapi>=0.68.0
-uvicorn>=0.15.0
-gunicorn>=20.1.0
-streamlit
-streamlit_chat
-
-# Utilities
+uvicorn[standard]
+openai
+langchain
+langchain-openai
+langchain-community
+chromadb==0.6.3
 python-dotenv
-pydantic
-rich
-
-# Excel support
-openpyxl
-git 
+tiktoken
