@@ -20,7 +20,7 @@ app = FastAPI()
 
 
 # Initialize FastAPI app
-app = FastAPI()
+#app = FastAPI()
 # Enable CORS for frontend (adjust origin in production)
 app.add_middleware(
    CORSMiddleware,
