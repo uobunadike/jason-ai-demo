@@ -7,6 +7,15 @@ from langchain_community.chat_models import AzureChatOpenAI
 from langchain_openai import AzureOpenAIEmbeddings
 from functools import lru_cache
 
+# Add these lines at the VERY TOP of your Python file
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
+# Now import LangChain/Chroma components
+from langchain_community.vectorstores import Chroma
+
+
 from pathlib import Path
 #print("Looking for .env at:", Path(".env").resolve())
 
@@ -84,4 +93,3 @@ Question: {question}
     )
 
     return qa_chain.invoke({"query": query})['result']
-
