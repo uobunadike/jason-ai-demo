@@ -8,3 +8,4 @@ chromadb==0.6.3
 python-dotenv
 tiktoken
 langchain-ollama
+pysqlite3-binary
