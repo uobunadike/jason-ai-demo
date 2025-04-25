@@ -1,3 +1,12 @@
+import sys
+
+try:
+    __import__('pysqlite3')
+    sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+except ImportError:
+    pass
+
+
 import os
 from dotenv import load_dotenv
 from langchain_community.vectorstores import Chroma 
@@ -8,9 +17,6 @@ from langchain_openai import AzureOpenAIEmbeddings
 from functools import lru_cache
 
 # Add these lines at the VERY TOP of your Python file
-__import__('pysqlite3')
-import sys
-sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
 # Now import LangChain/Chroma components
 from langchain_community.vectorstores import Chroma
