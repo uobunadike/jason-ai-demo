@@ -17,7 +17,8 @@ except ImportError:
 from langchain.text_splitter import CharacterTextSplitter
 from langchain_community.vectorstores import Chroma
 from langchain_community.chat_models import AzureChatOpenAI
-from langchain_openai import AzureOpenAIEmbeddings  # NEW: Azure native
+from langchain_openai import AzureOpenAIEmbeddings  # Azure embedding
+from langchain_ollama.llms import OllamaLLM  # Ollama LLM
 from langchain.chains import RetrievalQA
 from langchain.prompts import PromptTemplate
 
@@ -122,17 +123,24 @@ def get_vector_store():
     )
 
 # --- Core Run Method ---
-def run(query: str, model_name: str = "gpt-35-turbo") -> str:
-    """Run the RAG pipeline with Azure OpenAI and Chroma."""
+def run(query: str, model_type: Literal["ollama", "azure"] = "azure", model_name: str = "gpt-35-turbo") -> str:
+    """Run QA pipeline focused on answering questions directly from the data"""
     db = get_vector_store()
 
-    llm = AzureChatOpenAI(
-        api_key=api_key,
-        azure_endpoint=endpoint,
-        deployment_name=chat_deployment,
-        api_version=api_version,
-        temperature=0.3
-    )
+    if model_type == "ollama":
+        llm = OllamaLLM(model=model_name, temperature=0.3)
+    else:  # "azure"
+        llm = AzureChatOpenAI(
+            api_key=api_key,
+            azure_endpoint=endpoint,
+            deployment_name=chat_deployment,
+            api_version=api_version,
+            temperature=0.5
+        )
+
+    # Lightweight casual greetings
+    if query.strip().lower() in ["hi", "hello", "hey", "what's up?", "how are you?"]:
+        return llm.predict(query)
 
     prompt_template = """You are a data analyst reviewing multi-sheet inventory and financial data.
 
@@ -151,7 +159,7 @@ Now answer this question: {question}
     qa_chain = RetrievalQA.from_chain_type(
         llm=llm,
         retriever=db.as_retriever(search_kwargs={"k": 3}),
-        chain_type="stuff",  # Force stuff to avoid chunk_size error
+        chain_type="stuff",
         chain_type_kwargs={"prompt": prompt}
     )
 
