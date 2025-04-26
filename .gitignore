@@ -3,7 +3,7 @@ __pycache__/
 *.sqlite3
 *.pyc
 *.pyo
-*.xlsx
+#*.xlsx
 *.csv
 .DS_Store
 .env.*
