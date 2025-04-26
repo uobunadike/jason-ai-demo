@@ -23,7 +23,6 @@ with st.sidebar:
     model_name = st.selectbox(
         "Model Version",
         options=["llama3.1", "mistral"] if model_type == "ollama" else ["gpt-4-turbo", "gpt-3.5-turbo"],
-        index=0
     )
 
 # Main chat interface

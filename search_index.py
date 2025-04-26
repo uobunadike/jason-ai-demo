@@ -1,7 +1,9 @@
 # index_documents.py
 import os
 from dotenv import load_dotenv
+
 from langchain.text_splitter import CharacterTextSplitter
+from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores.azuresearch import AzureSearch
 from langchain_openai import AzureOpenAIEmbeddings
 import pandas as pd

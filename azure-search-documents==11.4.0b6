@@ -1,0 +1,8 @@
+azure-search-documents==11.4.0b6
+azure-storage-blob==12.19.0
+langchain==0.1.16
+langchain-openai==0.1.6
+openai==1.23.6
+streamlit==1.33.0
+pandas==2.2.2
+python-dotenv==1.0.1

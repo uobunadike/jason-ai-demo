@@ -11,7 +11,7 @@ load_dotenv()
 from langchain.text_splitter import CharacterTextSplitter
 from langchain_community.vectorstores import Chroma
 from langchain_community.vectorstores.azuresearch import AzureSearch
-from langchain_community.embeddings import AzureOpenAIEmbeddings
+from langchain.embeddings import AzureOpenAIEmbeddings
 from langchain_ollama.llms import OllamaLLM
 from langchain_community.chat_models import AzureChatOpenAI
 from langchain.chains import RetrievalQA
