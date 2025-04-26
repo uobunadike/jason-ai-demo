@@ -1,0 +1,91 @@
+# --- Core Imports ---
+import sys
+import os
+from dotenv import load_dotenv
+import pandas as pd
+from functools import lru_cache
+from typing import Literal
+
+# SQLite override for Azure compatibility
+try:
+    __import__('pysqlite3')
+    sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+except ImportError:
+    pass
+
+# --- LangChain + Chroma Imports ---
+from langchain_community.vectorstores import Chroma
+from langchain_community.chat_models import AzureChatOpenAI
+from langchain_openai import AzureOpenAIEmbeddings  # Azure embedding
+from langchain_ollama.llms import OllamaLLM  # Ollama LLM
+from langchain.chains import RetrievalQA
+from langchain.prompts import PromptTemplate
+
+# --- Load environment variables ---
+load_dotenv()
+
+# Azure OpenAI configs
+api_key = os.getenv("AZURE_OPENAI_API_KEY")
+endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
+embedding_deployment = os.getenv("AZURE_OPENAI_EMBEDDING_DEPLOYMENT")
+chat_deployment = os.getenv("AZURE_OPENAI_CHAT_DEPLOYMENT")
+api_version = os.getenv("AZURE_OPENAI_API_VERSION")
+
+# --- Load the EXISTING Vector Store (no rebuild from Excel) ---
+@lru_cache(maxsize=1)
+def get_vector_store():
+    """Load existing Chroma DB."""
+    return Chroma(
+        persist_directory="./chroma_db",
+        embedding_function=AzureOpenAIEmbeddings(
+            api_key=api_key,
+            azure_endpoint=endpoint,
+            deployment=embedding_deployment,
+            api_version=api_version
+        )
+    )
+
+# --- Core Run Method ---
+def run(query: str, model_type: Literal["ollama", "azure"] = "azure", model_name: str = "gpt-35-turbo") -> str:
+    """Run QA pipeline focused on answering questions directly from the data."""
+    db = get_vector_store()
+
+    if model_type == "ollama":
+        llm = OllamaLLM(model=model_name, temperature=0.3)
+    else:  # "azure"
+        llm = AzureChatOpenAI(
+            api_key=api_key,
+            azure_endpoint=endpoint,
+            deployment_name=chat_deployment,
+            api_version=api_version,
+            temperature=0.5
+        )
+
+    # Lightweight casual greetings
+    if query.strip().lower() in ["hi", "hello", "hey", "what's up?", "how are you?"]:
+        return llm.predict(query)
+
+    prompt_template = """You are a data analyst reviewing multi-sheet inventory and financial data.
+
+Use the following extracted data context to answer the question accurately:
+
+{context}
+
+Now answer this question: {question}
+"""
+
+    prompt = PromptTemplate(
+        input_variables=["context", "question"],
+        template=prompt_template
+    )
+
+    qa_chain = RetrievalQA.from_chain_type(
+        llm=llm,
+        retriever=db.as_retriever(search_kwargs={"k": 3}),
+        chain_type="stuff",
+        chain_type_kwargs={"prompt": prompt}
+    )
+
+    return qa_chain.invoke({"query": query})['result']
+
+# --- End of file ---
