@@ -7,11 +7,7 @@ from functools import lru_cache
 from typing import Literal
 
 # SQLite override for Azure compatibility
-try:
-    __import__('pysqlite3')
-    sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
-except ImportError:
-    pass
+
 
 # --- LangChain + Chroma Imports ---
 from langchain.text_splitter import CharacterTextSplitter
