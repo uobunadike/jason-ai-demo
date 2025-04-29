@@ -13,8 +13,8 @@ load_dotenv()
 # Ensure correct path
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
-# Import run from the new model file
-from model_to_test import run
+# Import run from the production-ready model file
+from modelf import run
 
 # Initialize FastAPI app
 app = FastAPI(
@@ -46,7 +46,7 @@ def clean_response_text(text: str) -> str:
 class Query(BaseModel):
     prompt: str
     model_type: str = "azure"        # Default to Azure
-    model_name: str = "gpt-35-turbo"  # Default Azure model
+    model_name: str = "gpt-4"         # Updated default to GPT-4
 
 # --- Endpoints ---
 @app.post("/query")
@@ -79,3 +79,4 @@ def home():
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run("m_api:app", host="0.0.0.0", port=8000, reload=True)
+

@@ -1,60 +1,67 @@
 import os
+import sys
+import re
+from dotenv import load_dotenv
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from model import run  # assuming this is your full RAG pipeline
-# Load .env if needed
-from dotenv import load_dotenv
-load_dotenv()
 import asyncio
-#rom asyncio.windows_events import ProactorEventLoop
 
-from fastapi import FastAPI
-from uvicorn import Config, Server
-import sys
-import os
+# Load environment variables
+load_dotenv()
+
+# Ensure correct path
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-import re
 
-app = FastAPI()
-
+# Import run only after .env is loaded
+from model import run
 
 # Initialize FastAPI app
-#app = FastAPI()
-# Enable CORS for frontend (adjust origin in production)
+app = FastAPI(
+    title="RAG Inventory Assistant API",
+    description="Use POST /query for full AI answers. Use POST /compact-query for KPI-only extractions.",
+    version="1.0.0"
+)
+
+# Enable CORS (allow frontend to connect)
 app.add_middleware(
    CORSMiddleware,
-   allow_origins=["*"],  # Use specific domain in production
+   allow_origins=["*"],  # Use specific domains in production
    allow_credentials=True,
    allow_methods=["*"],
    allow_headers=["*"],
 )
-# Adding a helper to extract numbers 
-def extract_compact_kpi(text):
-   matches = re.findall(r"[-+]?\d*\.\d+|\d+", text)
-   return matches[-1] if matches else text
 
-# Define input schema
-class Query(BaseModel):
-   prompt: str
-   model_type: str = "ollama"  # "ollama" or "openai"
-   model_name: str = "llama3.1"  # or "gpt-4-turbo"
+# --- Helpers ---
+def extract_compact_kpi(text: str):
+    """Extract the last number from text"""
+    matches = re.findall(r"[-+]?\d*\.\d+|\d+", text)
+    return matches[-1] if matches else text
 
 def clean_response_text(text: str) -> str:
+    """Clean response text"""
     return text.replace("\\n", " ").replace("\n", " ").replace("  ", " ").strip()
 
-# Define route
+# --- Request Schema ---
+class Query(BaseModel):
+    prompt: str
+    model_type: str = "azure"     # Default to Azure now
+    model_name: str = "gpt-35-turbo"  # Default Azure model
+
+# --- Endpoints ---
 @app.post("/query")
 def query_endpoint(query: Query):
-   try:
-       result = run(query.prompt, query.model_type, query.model_name)
-       cleaned_result = clean_response_text(result)
-       return {"response": cleaned_result}
-   except Exception as e:
-       return {"error": str(e)}
+    """Return full AI answer"""
+    try:
+        result = run(query.prompt, query.model_type, query.model_name)
+        cleaned_result = clean_response_text(result)
+        return {"response": cleaned_result}
+    except Exception as e:
+        return {"error": str(e)}
 
 @app.post("/compact-query")
 def compact_query_endpoint(query: Query):
+    """Return compact KPI or number"""
     try:
         raw_result = run(query.prompt, query.model_type, query.model_name)
         compact_result = extract_compact_kpi(raw_result)
@@ -65,9 +72,9 @@ def compact_query_endpoint(query: Query):
 
 @app.get("/")
 def home():
-    return {"message": "RAG API is running. Use POST /query."}
+    return {"message": "✅ RAG Inventory Assistant API is running. Use POST /query."}
 
-
+# --- Local Server Entry Point ---
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("api:app", host="0.0.0.0", port=8000)
+    uvicorn.run("m_api:app", host="0.0.0.0", port=8000, reload=True)
