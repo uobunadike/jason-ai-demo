@@ -118,7 +118,7 @@ def get_vector_store():
     embeddings = AzureOpenAIEmbeddings(
         api_key=api_key,
         azure_endpoint=endpoint,
-        deploymeent=embedding_deployment,
+        deployment=embedding_deployment,
         api_version=api_version
     )
 
@@ -147,7 +147,7 @@ def run(query: str, model_type: Literal["ollama", "azure"] = "azure", model_name
 
 Start with a direct answer to the user's question.
 
-Then briefly explain it and suggest any next steps—like chatting with a teammate over coffee. Be natural, not robotic. Avoid over-explaining.
+Then briefly explain it and suggest any next steps—like chatting with a teammate casually. Be natural, not robotic. Avoid over-explaining.
 
 Keep it short, clear, and human.
 
