@@ -1,2 +1,9 @@
 #!/bin/bash
 uvicorn api:app --host 0.0.0.0 --port 8000
+
+echo "🔧 Installing system dependencies..."
+apt-get update
+apt-get install -y build-essential libomp-dev
+
+echo "🚀 Starting your FastAPI app..."
+gunicorn -w 1 -k uvicorn.workers.UvicornWorker api:app --bind=0.0.0.0:8000
