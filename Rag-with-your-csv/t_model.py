@@ -1,4 +1,4 @@
-from model import run
+from model3 import run
 from dotenv import load_dotenv
 import os
 

@@ -118,7 +118,7 @@ def get_vector_store():
     embeddings = AzureOpenAIEmbeddings(
         api_key=api_key,
         azure_endpoint=endpoint,
-        deployment=embedding_deployment,
+        azure_deploymeent=embedding_deployment,
         api_version=api_version
     )
 
