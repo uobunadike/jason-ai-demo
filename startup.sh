@@ -1,5 +1,5 @@
 #!/bin/bash
-uvicorn api:app --host 0.0.0.0 --port 8000
+uvicorn to_api:app --host 0.0.0.0 --port 8000
 
 echo "🔧 Installing system dependencies..."
 apt-get update
