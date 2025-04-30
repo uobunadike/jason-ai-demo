@@ -24,7 +24,7 @@ embedding_deployment = os.getenv("AZURE_OPENAI_EMBEDDING_DEPLOYMENT")
 chat_deployment = os.getenv("AZURE_OPENAI_CHAT_DEPLOYMENT")
 api_version = os.getenv("AZURE_OPENAI_API_VERSION")
 
-# --- Data Processing ---
+# --- Sheet Detection ---
 def detect_sheet_type(df: pd.DataFrame) -> str:
     columns = pd.Index([str(col).lower() for col in df.columns])
     if 'event_type' in columns and 'event_timestamp' in columns:
@@ -35,6 +35,7 @@ def detect_sheet_type(df: pd.DataFrame) -> str:
         return 'revenue_risk'
     return 'unknown'
 
+# --- Sheet Processing ---
 def process_sheet(df: pd.DataFrame, sheet_type: str) -> str:
     text_chunks = []
     df.columns = [str(col).lower() for col in df.columns]
@@ -70,12 +71,13 @@ def process_sheet(df: pd.DataFrame, sheet_type: str) -> str:
 
     return "\n".join(text_chunks)
 
+# --- Data Loader ---
 @lru_cache(maxsize=1)
 def load_all_data():
     all_text = []
 
     try:
-        # KPI Excel
+        # --- Load KPI Excel ---
         kpi_sheets = pd.read_excel("Kpi_tables.xlsx", sheet_name=None, header=None, engine="openpyxl")
         for _, df in kpi_sheets.items():
             header_row = None
@@ -95,8 +97,8 @@ def load_all_data():
             if sheet_text:
                 all_text.append(sheet_text)
 
-        # Revenue at Risk CSV
-        df_risk = pd.read_csv("revenue_at_risk(Sheet1).csv")
+        # --- Load Revenue Risk Excel ---
+        df_risk = pd.read_excel("revenue_at_risk.xlsx", engine="openpyxl")
         df_risk.columns = [str(col).lower() for col in df_risk.columns]
         risk_text = process_sheet(df_risk, 'revenue_risk')
         if risk_text:
@@ -107,45 +109,45 @@ def load_all_data():
     except Exception as e:
         raise ValueError(f"Data processing error: {str(e)}")
 
+# --- Vector Store Setup ---
 @lru_cache(maxsize=1)
 def get_vector_store():
-    text_splitter = CharacterTextSplitter(chunk_size=500, chunk_overlap=50, separator="\n")
-    docs = text_splitter.split_text(load_all_data())
+    splitter = CharacterTextSplitter(chunk_size=500, chunk_overlap=50, separator="\n")
+    chunks = splitter.split_text(load_all_data())
 
-    return FAISS.from_texts(
-        texts=docs,
-        embedding=AzureOpenAIEmbeddings(
-            api_key=api_key,
-            azure_endpoint=endpoint,
-            deployment=embedding_deployment,
-            api_version=api_version
-        )
+    embeddings = AzureOpenAIEmbeddings(
+        api_key=api_key,
+        azure_endpoint=endpoint,
+        deployment=embedding_deployment,
+        api_version=api_version
     )
 
-# --- Core Run Method ---
+    return FAISS.from_texts(chunks, embedding=embeddings)
+
+# --- Run Method ---
 def run(query: str, model_type: Literal["ollama", "azure"] = "azure", model_name: str = "gpt-4") -> str:
     db = get_vector_store()
 
-    if model_type == "ollama":
-        llm = OllamaLLM(model=model_name, temperature=0.3)
-    else:
-        llm = AzureChatOpenAI(
+    llm = (
+        OllamaLLM(model=model_name, temperature=0.3)
+        if model_type == "ollama"
+        else AzureChatOpenAI(
             api_key=api_key,
             azure_endpoint=endpoint,
             deployment_name=chat_deployment,
             api_version=api_version,
             temperature=0.5
         )
+    )
 
-    # Short greetings
     if query.strip().lower() in ["hi", "hello", "hey", "what's up?", "how are you?"]:
         return llm.predict(query)
 
     prompt_template = """You are a smart, confident data analyst with a helpful and casual tone.
 
-Start by giving the direct answer to the user's question.
+Start with a direct answer to the user's question.
 
-Then, briefly the answer and give a suggestion if needed— like you're chatting with a teammate over coffee. Be natural, not robotic. Avoid over-explaining.
+Then briefly explain it and suggest any next steps—like chatting with a teammate over coffee. Be natural, not robotic. Avoid over-explaining.
 
 Keep it short, clear, and human.
 
@@ -159,7 +161,7 @@ Question: {question}
         template=prompt_template
     )
 
-    qa_chain = RetrievalQA.from_chain_type(
+    chain = RetrievalQA.from_chain_type(
         llm=llm,
         retriever=db.as_retriever(search_kwargs={"k": 3}),
         chain_type="stuff",
@@ -170,5 +172,5 @@ Question: {question}
         }
     )
 
-    return qa_chain.invoke({"query": query})['result']
+    return chain.invoke({"query": query})["result"]
 
