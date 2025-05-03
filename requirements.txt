@@ -1,26 +1,25 @@
-# Core dependencies
-fastapi==0.103.2  # Last version compatible with Pydantic v1
+# --- Core app dependencies ---
+fastapi==0.103.2
 uvicorn[standard]==0.27.0
 gunicorn==23.0.0
 
-# Environment & data
+# --- Environment & data handling ---
 python-dotenv==1.0.1
 openpyxl==3.1.2
 pandas==2.2.1
 
-# LangChain compatibility stack
-langchain-core==0.0.39  # Matches Pydantic v1
-langchain-community==0.0.39
-langchain-openai==0.0.39
-chromadb==0.4.24
+# --- Pydantic ---
+pydantic==1.10.13  # Matches FastAPI 0.103.2
+
+# --- LangChain ecosystem (verified compatible set) ---
+langchain==0.1.20
+langchain-core==0.1.50
+langchain-community==0.0.40
+langchain-openai==0.1.6
+langchain-ollama==0.1.3
+
+# --- Vector DB ---
 faiss-cpu==1.7.4
 
-# Explicit Pydantic version
-pydantic==1.10.13
-pydantic-settings==1.10.13  # Required for some LangChain components
-
-# Azure dependencies
+# --- Azure Blob ---
 azure-storage-blob==12.19.1
-
-# Ollama integration
-langchain-ollama==0.1.3
