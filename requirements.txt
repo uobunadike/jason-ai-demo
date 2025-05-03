@@ -9,13 +9,13 @@ openpyxl==3.1.2
 pandas==2.2.1
 
 # --- Pydantic ---
-pydantic==1.10.13  # Matches FastAPI 0.103.2
+pydantic==1.10.13
 
-# --- LangChain ecosystem (verified compatible set) ---
-langchain==0.1.20
-langchain-core==0.1.50
+# --- LangChain ecosystem ---
+langchain==0.2.15
+langchain-core==0.3.19
 langchain-community==0.3.22
-langchain-openai==0.1.6
+langchain-openai==0.3.8
 langchain-ollama==0.1.3
 
 # --- Vector DB ---
