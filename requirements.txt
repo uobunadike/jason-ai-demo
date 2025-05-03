@@ -1,7 +1,7 @@
 tiktoken
 fastapi
-uvicorn
-pydantic
+uvicorn[standard]     # Better performance in production
+pydantic>=1.10,<2.0    # Ensures compatibility with current LangChain
 python-dotenv
 pysqlite3-binary
 openpyxl

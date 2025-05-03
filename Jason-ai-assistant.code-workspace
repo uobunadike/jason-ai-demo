@@ -1,11 +1,7 @@
 {
-	"folders": [
-		{
-			"path": "../Jason-ai-assistant"
-		},
-		{
-			"path": "."
-		}
-	],
-	"settings": {}
+    "folders": [
+        {
+            "path": "."
+        }
+    ]
 }
