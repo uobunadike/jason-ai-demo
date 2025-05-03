@@ -2,7 +2,7 @@ import os
 from azure.storage.blob import BlobServiceClient
 
 # These should be set in your environment or GitHub secrets
-AZURE_CONNECTION_STRING = os.getenv("AZURE_STORAGE_CONNECTION_STRING")
+AZURE_CONN_STRING = os.getenv("AZURE_STORAGE_CONN_STRING")
 CONTAINER_NAME = os.getenv("AZURE_BLOB_CONTAINER", "azureml")
 
 FAISS_DIR = "src/faiss_index"
@@ -15,10 +15,10 @@ FILES_TO_DOWNLOAD = {
 
 def download_blobs():
     try:
-        if not AZURE_CONNECTION_STRING:
+        if not AZURE_CONN_STRING:
             raise ValueError("Missing Azure connection string environment variable.")
 
-        blob_service_client = BlobServiceClient.from_connection_string(AZURE_CONNECTION_STRING)
+        blob_service_client = BlobServiceClient.from_connection_string(AZURE_CONN_STRING)
         container_client = blob_service_client.get_container_client(CONTAINER_NAME)
 
         for filename, target_dir in FILES_TO_DOWNLOAD.items():
