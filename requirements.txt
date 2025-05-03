@@ -1,25 +1,26 @@
 # --- Core app dependencies ---
-fastapi==0.103.2
-uvicorn[standard]==0.27.0
+tiktoken==0.9.0
+fastapi==0.115.12
+uvicorn[standard]==0.34.2
 gunicorn==23.0.0
 
 # --- Environment & data handling ---
-python-dotenv==1.0.1
-openpyxl==3.1.2
-pandas==2.2.1
+python-dotenv==1.1.0
+openpyxl==3.1.5
+pandas==2.2.3
 
 # --- Pydantic ---
 pydantic==1.10.13
 
 # --- LangChain ecosystem ---
-langchain==0.3.19  # Updated version to be compatible with langchain-community 0.3.22
-langchain-core==0.3.19
-langchain-community==0.3.22
-langchain-openai==0.3.8
-langchain-ollama==0.1.3
+langchain==0.3.25
+langchain-core==0.3.58
+langchain-community==0.3.23
+langchain-openai==0.3.16
+langchain-ollama==0.3.2
 
 # --- Vector DB ---
 faiss-cpu==1.7.4
 
 # --- Azure Blob ---
-azure-storage-blob==12.19.1
+azure-storage-blob==12.25.1
