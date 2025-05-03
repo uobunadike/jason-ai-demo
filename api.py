@@ -2,6 +2,7 @@
 import os
 import sys
 import re
+import logging  # Added logging import
 from dotenv import load_dotenv
 from fastapi import FastAPI, Body
 from fastapi.middleware.cors import CORSMiddleware
@@ -52,22 +53,34 @@ class Query(BaseModel):
 @app.post("/query")
 def query_endpoint(query: Query = Body(...)):
     """Return full AI answer based on the input prompt"""
+    
+    # Log the incoming query to check the data being passed
+    logging.info(f"Received query: {query}")  # Log the entire query object
+
     try:
+        # Call the 'run' function to process the query
         result = run(query.prompt, query.model_type, query.model_name)
         cleaned_result = clean_response_text(result)
         return {"response": cleaned_result}
     except Exception as e:
+        logging.error(f"Error processing the query: {str(e)}")  # Log the error
         return {"error": str(e)}
 
 @app.post("/compact-query")
 def compact_query_endpoint(query: Query = Body(...)):
     """Return just the compact KPI number"""
+    
+    # Log the incoming query to check the data being passed
+    logging.info(f"Received compact query: {query}")  # Log the entire query object
+
     try:
+        # Call the 'run' function to process the query
         raw_result = run(query.prompt, query.model_type, query.model_name)
         compact_result = extract_compact_kpi(raw_result)
         cleaned_compact = clean_response_text(compact_result)
         return {"result": cleaned_compact}
     except Exception as e:
+        logging.error(f"Error processing the compact query: {str(e)}")  # Log the error
         return {"error": str(e)}
 
 @app.get("/")
@@ -78,4 +91,5 @@ def home():
 # --- Local Server Entrypoint ---
 if __name__ == "__main__":
     import uvicorn
+    # Run the app locally with UVicorn, enabling hot reload for development
     uvicorn.run("api:app", host="0.0.0.0", port=8000, reload=True)
