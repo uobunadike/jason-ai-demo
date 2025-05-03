@@ -10,7 +10,7 @@ openpyxl==3.1.5
 pandas==2.2.3
 
 # --- Pydantic ---
-pydantic==1.10.13
+pydantic==2.7.4  # Updated to satisfy both FastAPI and LangChain requirements
 
 # --- LangChain ecosystem ---
 langchain==0.3.25
