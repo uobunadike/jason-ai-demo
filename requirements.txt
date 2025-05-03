@@ -12,7 +12,7 @@ pandas==2.2.1
 pydantic==1.10.13
 
 # --- LangChain ecosystem ---
-langchain==0.2.15
+langchain==0.3.19  # Updated version to be compatible with langchain-community 0.3.22
 langchain-core==0.3.19
 langchain-community==0.3.22
 langchain-openai==0.3.8
