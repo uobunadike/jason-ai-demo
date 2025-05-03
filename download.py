@@ -5,8 +5,8 @@ from azure.storage.blob import BlobServiceClient
 AZURE_CONN_STRING = os.getenv("AZURE_STORAGE_CONN_STRING")
 CONTAINER_NAME = os.getenv("AZURE_BLOB_CONTAINER", "azureml")
 
-FAISS_DIR = "src/faiss_index"
-EXCEL_DIR = "src"
+FAISS_DIR = "faiss_index"
+EXCEL_DIR = "."
 FILES_TO_DOWNLOAD = {
     "index.faiss": FAISS_DIR,
     "index.pkl": FAISS_DIR,
