@@ -12,3 +12,4 @@ langchain_openai
 langchain_community
 langchain_ollama
 faiss-cpu==1.7.4
+azure-storage-blob
