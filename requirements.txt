@@ -20,7 +20,7 @@ langchain-openai==0.3.16
 langchain-ollama==0.3.2
 
 # --- Vector DB ---
-faiss-cpu==1.7.4
+faiss-cpu==1.11.0
 
 # --- Azure Blob ---
 azure-storage-blob==12.25.1

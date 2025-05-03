@@ -5,6 +5,10 @@ from dotenv import load_dotenv
 import pandas as pd
 from functools import lru_cache
 from typing import Literal
+# Run in Python terminal
+import faiss
+
+
 
 # LangChain + FAISS Imports
 from langchain.text_splitter import CharacterTextSplitter
