@@ -1,7 +1,7 @@
 tiktoken
 fastapi
 uvicorn[standard]     # Better performance in production
-pydantic>=1.10,<2.0    # Ensures compatibility with current LangChain
+#pydantic>=1.10,<2.0    # Ensures compatibility with current LangChain
 python-dotenv
 pysqlite3-binary
 openpyxl
@@ -13,3 +13,5 @@ langchain_community
 langchain_ollama
 faiss-cpu==1.7.4
 azure-storage-blob
+pydantic==1.10.13
+fastapi==0.103.2
