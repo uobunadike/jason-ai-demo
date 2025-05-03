@@ -1,17 +1,26 @@
-tiktoken
-fastapi
-uvicorn[standard]     # Better performance in production
-#pydantic>=1.10,<2.0    # Ensures compatibility with current LangChain--
+# Core dependencies
+fastapi==0.78.0
+uvicorn[standard]  # Better performance in production
+gunicorn==23.0.0  # Ensure compatibility with FastAPI
+
+# Environment & data
 python-dotenv
 pysqlite3-binary
 openpyxl
 pandas
+
+# LangChain and related dependencies
 langchain
 chromadb
 langchain_openai
 langchain_community
 langchain_ollama
-faiss-cpu==1.7.4
+
+# Azure & storage
 azure-storage-blob
+
+# Additional dependencies
+faiss-cpu==1.7.4
+
+# Pydantic version compatibility
 pydantic==1.10.13
-fastapi==0.103.2

@@ -34,7 +34,7 @@ jobs:
 
       - name: Download FAISS index and Excel from Azure Blob
         env:
-          AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
+          AZURE_STORAGE_CONN_STRING: ${{ secrets.AZURE_STORAGE_CONN_STRING }}
         run: python download.py
 
       - name: Zip artifact for deployment
