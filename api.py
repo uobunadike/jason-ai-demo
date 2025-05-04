@@ -2,95 +2,74 @@
 import os
 import sys
 import re
-import logging  # Added logging import
+import logging
 from dotenv import load_dotenv
-from fastapi import FastAPI, Body
+from fastapi import FastAPI, Body, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-# Run in Python terminal
 
 # Load environment variables
 load_dotenv()
-
-# Ensure correct path
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-
-# Import run from the production-ready model file
 from model import run
 
-# Initialize FastAPI app
 app = FastAPI(
     title="RAG Inventory Assistant API",
     description="Use POST /query for full AI answers. Use POST /compact-query for KPI-only extractions.",
     version="1.0.0"
 )
 
-# Enable CORS (allow frontend to connect)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Open CORS for now
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# --- Helpers ---
 def extract_compact_kpi(text: str):
-    """Extract the last number from the AI response"""
     matches = re.findall(r"[-+]?\d*\.\d+|\d+", text)
     return matches[-1] if matches else text
 
 def clean_response_text(text: str) -> str:
-    """Clean up response text"""
     return text.replace("\\n", " ").replace("\n", " ").replace("  ", " ").strip()
 
-# --- Request Schema ---
 class Query(BaseModel):
     prompt: str
     model_type: str = "azure"
     model_name: str = "gpt-4"
 
-# --- Endpoints ---
-@app.post("/query")
-def query_endpoint(query: Query = Body(...)):
-    """Return full AI answer based on the input prompt"""
-    
-    # Log the incoming query to check the data being passed
-    logging.info(f"Received query: {query}")  # Log the entire query object
+class QueryResponse(BaseModel):
+    result: str
 
+@app.post("/query", response_model=QueryResponse)
+def query_endpoint(query: Query = Body(...)):
+    logging.info(f"Received query: {query}")
     try:
-        # Call the 'run' function to process the query
         result = run(query.prompt, query.model_type, query.model_name)
         cleaned_result = clean_response_text(result)
-        return {"response": cleaned_result}
+        return QueryResponse(result=cleaned_result)
     except Exception as e:
-        logging.error(f"Error processing the query: {str(e)}")  # Log the error
-        return {"error": str(e)}
+        logging.error(f"Error processing the query: {str(e)}")
+        raise HTTPException(status_code=500, detail=str(e))
 
-@app.post("/compact-query")
+@app.post("/compact-query", response_model=QueryResponse)
 def compact_query_endpoint(query: Query = Body(...)):
-    """Return just the compact KPI number"""
-    
-    # Log the incoming query to check the data being passed
-    logging.info(f"Received compact query: {query}")  # Log the entire query object
-
+    logging.info(f"Received compact query: {query}")
     try:
-        # Call the 'run' function to process the query
         raw_result = run(query.prompt, query.model_type, query.model_name)
         compact_result = extract_compact_kpi(raw_result)
         cleaned_compact = clean_response_text(compact_result)
-        return {"result": cleaned_compact}
+        return QueryResponse(result=cleaned_compact)
     except Exception as e:
-        logging.error(f"Error processing the compact query: {str(e)}")  # Log the error
-        return {"error": str(e)}
+        logging.error(f"Error processing the compact query: {str(e)}")
+        raise HTTPException(status_code=500, detail=str(e))
 
 @app.get("/")
 def home():
-    """Healthcheck endpoint"""
     return {"message": "✅ RAG Inventory Assistant API is running. Use POST /query."}
 
-# --- Local Server Entrypoint ---
 if __name__ == "__main__":
     import uvicorn
-    # Run the app locally with UVicorn, enabling hot reload for development
     uvicorn.run("api:app", host="0.0.0.0", port=8000, reload=True)
+
