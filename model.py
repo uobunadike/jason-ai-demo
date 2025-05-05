@@ -157,7 +157,7 @@ def run(query: str, model_type: Literal["ollama", "azure"] = "azure", model_name
 
 Start with just the direct answer to the user's question.
 
-Then in a new line, provide a brief message in 1 sentence without adding extra context or instructions. 
+Then in a new line, provide a brief message in 1 sentence without adding extra context or instructions. If it involves multiple items, provide each item's details in a bullet-point format.
 
 {context}
 
