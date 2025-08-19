@@ -134,7 +134,7 @@ def get_vector_store():
     db.save_local(faiss_index_dir)
     return db
 
-# --- Run Method ---
+# --- Run Method ---#
 def run(query: str, model_type: Literal["ollama", "azure"] = "azure", model_name: str = "gpt-4") -> str:
     db = get_vector_store()
 
