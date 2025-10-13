@@ -1,6 +1,8 @@
 # --- Core Imports ------- c
 import os
 import sys
+if '/agents/python' in sys.path:
+    sys.path.remove('/agents/python')
 import re
 import logging
 from dotenv import load_dotenv
