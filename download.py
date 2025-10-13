@@ -1,37 +1,44 @@
 import os
+from dotenv import load_dotenv
 from azure.storage.blob import BlobServiceClient
 
-# These should be set in your environment or GitHub secrets
+load_dotenv()
+
 AZURE_CONN_STRING = os.getenv("AZURE_STORAGE_CONN_STRING")
 CONTAINER_NAME = os.getenv("AZURE_BLOB_CONTAINER", "azureml")
-
 FAISS_DIR = "faiss_index"
-EXCEL_DIR = "."
-FILES_TO_DOWNLOAD = {
-    "index.faiss": FAISS_DIR,
-    "index.pkl": FAISS_DIR,
-    "revenue_at_risk.xlsx": EXCEL_DIR,
-}
 
-def download_blobs():
-    try:
-        if not AZURE_CONN_STRING:
-            raise ValueError("Missing Azure connection string environment variable.")
+def download_directory(blob_prefix: str, local_dir: str):
+    blob_service_client = BlobServiceClient.from_connection_string(AZURE_CONN_STRING)
+    container_client = blob_service_client.get_container_client(CONTAINER_NAME)
+    os.makedirs(local_dir, exist_ok=True)
 
-        blob_service_client = BlobServiceClient.from_connection_string(AZURE_CONN_STRING)
-        container_client = blob_service_client.get_container_client(CONTAINER_NAME)
+    print(f"⬇️  Downloading from prefix '{blob_prefix}' into '{local_dir}'...")
 
-        for filename, target_dir in FILES_TO_DOWNLOAD.items():
-            os.makedirs(target_dir, exist_ok=True)
-            blob_client = container_client.get_blob_client(filename)
-            download_path = os.path.join(target_dir, filename)
+    blobs = container_client.list_blobs(name_starts_with=blob_prefix)
+    found_any = False
 
-            with open(download_path, "wb") as f:
-                f.write(blob_client.download_blob().readall())
-            print(f"✅ Downloaded {filename} to {download_path}")
+    for blob in blobs:
+        found_any = True
+        relative_path = os.path.relpath(blob.name, blob_prefix)
+        local_path = os.path.join(local_dir, relative_path)
+        os.makedirs(os.path.dirname(local_path), exist_ok=True)
 
-    except Exception as e:
-        print(f"❌ Download failed: {str(e)}")
+        with open(local_path, "wb") as f:
+            blob_data = container_client.download_blob(blob.name)
+            f.write(blob_data.readall())
+        print(f"✅ Downloaded: {blob.name}")
+
+    if not found_any:
+        print(f"⚠️ No blobs found under prefix '{blob_prefix}'")
+
+def main():
+    if not AZURE_CONN_STRING:
+        raise ValueError("❌ Missing Azure connection string (AZURE_STORAGE_CONN_STRING).")
+
+    print("🚀 Downloading all FAISS indexes from Azure Blob...")
+    download_directory("faiss_index", FAISS_DIR)
+    print("✅ All FAISS indexes downloaded successfully.")
 
 if __name__ == "__main__":
-    download_blobs()
+    main()
