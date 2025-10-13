@@ -8,7 +8,7 @@ from fastapi import FastAPI, Body, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
-# Load environment variables
+# Load environment variabless
 load_dotenv()
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 from model import run
