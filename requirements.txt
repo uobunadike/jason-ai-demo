@@ -24,3 +24,6 @@ faiss-cpu==1.11.0
 
 # --- Azure Blob ---
 azure-storage-blob==12.25.1
+
+#
+typing_extensions>=4.8.0
