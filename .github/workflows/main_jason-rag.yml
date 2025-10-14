@@ -24,9 +24,14 @@ jobs:
         with:
           python-version: '3.10'
 
-      - name: Upgrade pip and install dependencies
+      - name: Create and start virtual environment
         run: |
-          python -m pip install --upgrade pip
+          python -m venv venv
+          source venv/bin/activate
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
           pip install -r requirements.txt
 
       - name: Download FAISS index and Excel from Azure Blob
@@ -34,7 +39,6 @@ jobs:
           AZURE_STORAGE_CONN_STRING: ${{ secrets.AZURE_STORAGE_CONN_STRING }}
         run: python download.py
 
-      # ✅ Ensure full recursive zip of all files, including startup.sh
       - name: Zip artifact for deployment
         run: zip -r release.zip . -x "venv/*" ".git/*" "__pycache__/*"
 
@@ -42,8 +46,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: python-app
-          path: |
-            release.zip
+          path: release.zip
 
   deploy:
     runs-on: ubuntu-latest
@@ -70,31 +73,6 @@ jobs:
           client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_29593EDD82B2478DB7AFF824CEB35E1F }}
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_8F011CCCB40E4573B6DC83AE248C4F3E }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_7F81B8A838E2443FACEA2DF681114005 }}
-
-      # ✅ NEW STEP: Rebuild venv and install dependencies before deployment
-      - name: Force clean Python environment
-        run: |
-          echo "🧹 Removing old antenv..."
-          rm -rf antenv
-          echo "🐍 Rebuilding virtual environment and installing dependencies..."
-          python3 -m venv antenv || python -m venv antenv
-          source antenv/bin/activate
-          pip install --upgrade pip
-          pip install -r requirements.txt
-          pip show langchain-community || echo "⚠️ LangChain_Community not found!"
-
-      # ✅ Ensure Azure App Service runs correct startup script
-      - name: Set Azure App Service settings
-        uses: azure/appservice-settings@v1
-        with:
-          app-name: 'jason-rag'
-          app-settings-json: |
-            [
-              {"name": "ENABLE_ORYX_BUILD", "value": "false"},
-              {"name": "SCM_DO_BUILD_DURING_DEPLOYMENT", "value": "false"},
-              {"name": "PYTHON_ENABLE_GUNICORN", "value": "1"},
-              {"name": "STARTUP_FILE", "value": "startup.sh"}
-            ]
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
