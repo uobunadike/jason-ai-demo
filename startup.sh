@@ -1,22 +1,26 @@
 #!/bin/bash
 set -e  # Exit immediately if any command fails
 
-echo "📦 Activating virtual environment..."
-if [ -d "antenv/bin" ]; then
-    source antenv/bin/activate
-elif [ -d "antenv/Scripts" ]; then
-    source antenv/Scripts/activate
+VENV_PATH="/home/site/wwwroot/antenv"
+
+echo "📦 Ensuring virtual environment is used..."
+if [ -d "$VENV_PATH/bin" ]; then
+    PYTHON="$VENV_PATH/bin/python"
+    PIP="$VENV_PATH/bin/pip"
+else
+    PYTHON="$VENV_PATH/Scripts/python"
+    PIP="$VENV_PATH/Scripts/pip"
 fi
 
-echo "📦 Installing Python dependencies..."
-python -m pip install --upgrade pip
-pip install --no-cache-dir -r requirements.txt
+echo "📦 Installing Python dependencies into $VENV_PATH..."
+$PYTHON -m pip install --upgrade pip
+$PIP install --no-cache-dir -r requirements.txt
 
 echo "☁️ Downloading FAISS indexes from Azure Blob..."
-python download.py
+$PYTHON download.py
 
 echo "🚀 Launching FastAPI app with Gunicorn..."
-exec gunicorn api:app \
+exec $VENV_PATH/bin/gunicorn api:app \
  --workers 1 \
  --worker-class uvicorn.workers.UvicornWorker \
  --bind 0.0.0.0:8000 \
