@@ -14,11 +14,12 @@ pydantic>=2.7.4,<3.0.0  # Compatible with both FastAPI and LangChain
 
 # --- LangChain ecosystem ---
 # --- LangChain ecosystem (aligned versions) ---
-langchain==0.3.7
-langchain-core==0.3.15
-langchain-community==0.3.7
-langchain-openai==0.3.1
-langchain-ollama==0.3.0
+langchain==0.3.25
+langchain-core==0.3.58
+langchain-community==0.3.23
+langchain-openai==0.3.16
+langchain-ollama==0.3.2
+
 
 # --- Vector DB ---
 faiss-cpu==1.11.0
