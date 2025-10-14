@@ -1,18 +1,19 @@
 #!/bin/bash
-set -e
+set -euo pipefail
 
-echo "🚀 Activating virtual environment and starting FastAPI app..."
+cd /home/site/wwwroot
+source antenv/bin/activate
 
-# Activate the prebuilt virtual environment created by Oryx
-if [ -d "antenv" ]; then
-  source antenv/bin/activate
-else
-  echo "⚠️ No antenv found; relying on Oryx virtual environment."
-fi
+export PYTHONPATH="/home/site/wwwroot:${PYTHONPATH:-}"
+export PORT="${PORT:-8000}"
 
-# Start the FastAPI app via Gunicorn and UvicornWorker
+echo "🚀 Running in virtualenv: $(which python)"
+pip list | grep uvicorn || echo "⚠️ Uvicorn not found in active environment!"
+
 exec gunicorn api:app \
-  --workers 1 \
+  --workers "${WEB_CONCURRENCY:-1}" \
   --worker-class uvicorn.workers.UvicornWorker \
-  --bind 0.0.0.0:${PORT:-8000} \
-  --timeout 600
+  --bind "0.0.0.0:${PORT}" \
+  --timeout 600 \
+  --access-logfile - \
+  --error-logfile -
