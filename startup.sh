@@ -1,23 +1,26 @@
 #!/bin/bash
-set -euo pipefail
+set -e  # Exit if any command fails
 
-# Always run from the app root so "import api" works
-cd /home/site/wwwroot
+echo "📦 Activating virtual environment and installing Python dependencies..."
+if [ -d "antenv" ]; then
+  source antenv/bin/activate
+else
+  echo "⚠️ Virtual environment not found, creating one..."
+  python3 -m venv antenv || python -m venv antenv
+  source antenv/bin/activate
+fi
 
-# Ensure the app folder is on PYTHONPATH (Oryx no longer adds it)
-export PYTHONPATH="/home/site/wwwroot:${PYTHONPATH:-}"
+echo "⬆️ Upgrading pip and verifying dependencies..."
+pip install --upgrade pip
+pip install -r requirements.txt
+pip install gunicorn uvicorn fastapi  # ensure web server packages are present
 
-# Azure will honor WEBSITES_PORT=8000; still default PORT for Gunicorn
-export PORT="${PORT:-8000}"
+echo "☁️ Downloading FAISS indexes from Azure Blob..."
+python download.py || echo "⚠️ Download script failed or skipped"
 
-echo "🚀 Starting FastAPI app via Gunicorn from $(pwd)"
-echo "PYTHONPATH=$PYTHONPATH"
-
-# More verbose logs so we SEE import/traceback if the worker crashes
+echo "🚀 Launching FastAPI app with Gunicorn..."
 exec gunicorn api:app \
-  --workers "${WEB_CONCURRENCY:-1}" \
+  --workers 1 \
   --worker-class uvicorn.workers.UvicornWorker \
-  --bind "0.0.0.0:${PORT}" \
-  --timeout 600 \
-  --access-logfile - \
-  --error-logfile -
+  --bind 0.0.0.0:8000 \
+  --timeout 600
