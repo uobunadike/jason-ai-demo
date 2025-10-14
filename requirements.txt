@@ -27,3 +27,5 @@ azure-storage-blob==12.25.1
 
 #
 typing_extensions==4.12.2
+
+exceptiongroup>=1.0.0
