@@ -1,14 +1,41 @@
-# --- Core Imports ------- c
+# --- Core Imports & Azure Fix ---
 import os
 import sys
-if '/agents/python' in sys.path:
-    sys.path.remove('/agents/python')
+import site
+
+# --- Fix Azure import path issue (legacy /agents/python) ---
+try:
+    # 1) Remove Azure system Python path if present
+    sys.path = [p for p in sys.path if not (isinstance(p, str) and p.startswith("/agents/python"))]
+
+    # 2) Ensure our venv's site-packages take priority
+    paths = []
+    try:
+        paths.extend(site.getsitepackages())
+    except Exception:
+        pass
+    try:
+        usp = site.getusersitepackages()
+        if usp:
+            paths.append(usp)
+    except Exception:
+        pass
+
+    for p in reversed([p for p in paths if p and p in sys.path]):
+        sys.path.remove(p)
+    for p in [p for p in paths if p]:
+        sys.path.insert(0, p)
+except Exception:
+    pass
+# --- End Azure Fix ---
+
+from fastapi import FastAPI, Body, HTTPException
 import re
 import logging
 from dotenv import load_dotenv
-from fastapi import FastAPI, Body, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
+
 
 # Load environment variabless
 load_dotenv()
