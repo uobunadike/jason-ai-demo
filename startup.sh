@@ -3,7 +3,7 @@ set -e
 
 echo "🚀 Starting FastAPI app..."
 
-# Activate existing virtual environment (Oryx creates it during build)
+# Activate existing virtual environment (Oryx creates it during build).
 if [ -d "antenv" ]; then
   echo "Activating virtual environment..."
   source antenv/bin/activate
