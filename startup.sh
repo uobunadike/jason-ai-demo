@@ -1,15 +1,18 @@
 #!/bin/bash
 set -e
 
-echo "🚀 Starting FastAPI app..."
+echo "🚀 Activating virtual environment and starting FastAPI app..."
 
-# Activate existing virtual environment (Oryx creates it during build).
+# Activate the prebuilt virtual environment created by Oryx
 if [ -d "antenv" ]; then
-  echo "Activating virtual environment..."
   source antenv/bin/activate
 else
-  echo "⚠️ Virtual environment not found — app may not start correctly."
+  echo "⚠️ No antenv found; relying on Oryx virtual environment."
 fi
 
-# Launch the app using Gunicorn and Uvicorn workers
-exec gunicorn -w 4 -k uvicorn.workers.UvicornWorker api:app --bind=0.0.0.0:${PORT:-8000}
+# Start the FastAPI app via Gunicorn and UvicornWorker
+exec gunicorn api:app \
+  --workers 1 \
+  --worker-class uvicorn.workers.UvicornWorker \
+  --bind 0.0.0.0:${PORT:-8000} \
+  --timeout 600
