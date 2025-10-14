@@ -71,7 +71,19 @@ jobs:
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_8F011CCCB40E4573B6DC83AE248C4F3E }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_7F81B8A838E2443FACEA2DF681114005 }}
 
-      # ✅ NEW: Force Azure to treat this as a Python app with a startup script
+      # ✅ NEW STEP: Rebuild venv and install dependencies before deployment
+      - name: Force clean Python environment
+        run: |
+          echo "🧹 Removing old antenv..."
+          rm -rf antenv
+          echo "🐍 Rebuilding virtual environment and installing dependencies..."
+          python3 -m venv antenv || python -m venv antenv
+          source antenv/bin/activate
+          pip install --upgrade pip
+          pip install -r requirements.txt
+          pip show langchain-community || echo "⚠️ LangChain_Community not found!"
+
+      # ✅ Ensure Azure App Service runs correct startup script
       - name: Set Azure App Service settings
         uses: azure/appservice-settings@v1
         with:
