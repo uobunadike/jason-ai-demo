@@ -1,4 +1,4 @@
-# --- Core Imports ----
+# --- Core Imports -----
 import os
 from typing import Literal
 from langchain_community.vectorstores import FAISS
