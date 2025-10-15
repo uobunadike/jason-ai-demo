@@ -1,20 +1,19 @@
 #!/bin/bash
-set -e  # Exit immediately if a command fails
+set -e  # Exit if any command fails
 
-echo "🔹 Setting up virtual environment..."
-if [ ! -d "antenv" ]; then
-  python3 -m venv antenv
-fi
-source antenv/bin/activate
+echo "📦 Setting up environment..."
 
-echo "⬆️ Upgrading pip and installing dependencies..."
+# 1️⃣ Install dependencies
 pip install --upgrade pip
 pip install -r requirements.txt
+pip install gunicorn uvicorn fastapi
 
-echo "☁️ Downloading FAISS index and data from Azure Blob..."
+# 2️⃣ Download FAISS + Excel data from Azure Blob
+echo "☁️ Downloading FAISS + data from Azure Blob..."
 python download.py
 
-echo "🚀 Starting FastAPI app with Gunicorn..."
+# 3️⃣ Start FastAPI app via Gunicorn (Uvicorn workers)
+echo "🚀 Launching FastAPI app with Gunicorn..."
 exec gunicorn api:app \
   --workers 2 \
   --worker-class uvicorn.workers.UvicornWorker \
