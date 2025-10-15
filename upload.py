@@ -2,7 +2,7 @@ import os
 from dotenv import load_dotenv 
 from azure.storage.blob import BlobServiceClient
 
-# --- Load environment variables ----
+# --- Load environment variables -----
 load_dotenv()  # 👈 Add this — reads your .env automatically
 
 AZURE_CONN_STRING = os.getenv("AZURE_STORAGE_CONN_STRING")
