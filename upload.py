@@ -29,8 +29,10 @@ def main():
         raise ValueError("❌ Missing Azure connection string (AZURE_STORAGE_CONN_STRING).")
 
     print("🚀 Uploading all FAISS indexes...")
-    upload_directory(FAISS_DIR, blob_prefix="faiss_index")
+    upload_directory("faiss_index", blob_prefix="faiss_index")
     print("✅ All FAISS indexes uploaded successfully.")
 
-if __name__ == "__main__":
-    main()
+    print("🚀 Uploading all data files...")
+    upload_directory("data", blob_prefix="data")
+    print("✅ All data files uploaded successfully.")
+
