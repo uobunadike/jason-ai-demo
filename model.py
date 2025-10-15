@@ -11,6 +11,7 @@ from langchain_openai import AzureOpenAIEmbeddings, AzureChatOpenAI
 from langchain_ollama.llms import OllamaLLM
 from langchain.chains import RetrievalQA
 from langchain.prompts import PromptTemplate
+from pathlib import Path
 
 # Load environment variables
 load_dotenv()
@@ -22,9 +23,16 @@ embedding_deployment = os.getenv("AZURE_OPENAI_EMBEDDING_DEPLOYMENT")
 chat_deployment = os.getenv("AZURE_OPENAI_CHAT_DEPLOYMENT")
 api_version = os.getenv("AZURE_OPENAI_API_VERSION")
 
-DATA_ROOT = os.path.join(os.getcwd(), "data")
-FAISS_ROOT = os.path.join(os.getcwd(), "faiss_index")
+# Detect the true project base directory (works on Render, Azure, and locally)
+BASE_DIR = Path(__file__).resolve().parent
 
+# Point to actual directories in your repo
+DATA_ROOT = BASE_DIR            # 'jason' and 'claire' live directly under project root
+FAISS_ROOT = BASE_DIR / "faiss_index"
+
+print("📁 BASE_DIR:", BASE_DIR)
+print("📁 DATA_ROOT:", DATA_ROOT)
+print("📁 FAISS_ROOT:", FAISS_ROOT)
 
 # -----------------------
 # Helpers
