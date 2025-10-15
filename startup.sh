@@ -16,4 +16,3 @@ pip install --ignore-installed -r requirements.txt
 
 # Run the application
 gunicorn --workers 4 --worker-class uvicorn.workers.UvicornWorker --bind=0.0.0.0:8000 api:app
-
