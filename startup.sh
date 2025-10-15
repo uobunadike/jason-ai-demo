@@ -1,18 +1,22 @@
 #!/bin/bash
-# Remove old virtual environment to ensure a clean install
-rm -rf /home/site/wwwroot/antenv
+set -e  # Exit immediately if a command fails
 
-# Create a new virtual environment in the persistent directory
-python3 -m venv /home/site/wwwroot/antenv
+echo "🔹 Setting up virtual environment..."
+if [ ! -d "antenv" ]; then
+  python3 -m venv antenv
+fi
+source antenv/bin/activate
 
-# Activate the new virtual environment
-source /home/site/wwwroot/antenv/bin/activate
-
-# Upgrade pip within the new virtual environment
+echo "⬆️ Upgrading pip and installing dependencies..."
 pip install --upgrade pip
+pip install -r requirements.txt
 
-# Install dependencies, ignoring system packages
-pip install --ignore-installed -r requirements.txt
+echo "☁️ Downloading FAISS index and data from Azure Blob..."
+python download.py
 
-# Run the application
-gunicorn --workers 4 --worker-class uvicorn.workers.UvicornWorker --bind=0.0.0.0:8000 api:app
+echo "🚀 Starting FastAPI app with Gunicorn..."
+exec gunicorn api:app \
+  --workers 2 \
+  --worker-class uvicorn.workers.UvicornWorker \
+  --bind 0.0.0.0:${PORT:-8000} \
+  --timeout 600
