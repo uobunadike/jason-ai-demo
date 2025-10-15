@@ -1,0 +1,11 @@
+vendor_id,week_start,otd_pct,avg_lateness_days,,Vendor_Name
+V100,7/18/2025,93.9,1.48,,ACME INC
+V102,7/25/2025,90.9,1.68,,Sapura Energy
+V103,8/1/2025,90.1,1.23,,Toyota
+V104,8/8/2025,93.3,1.02,,Vantris
+V105,8/15/2025,91.9,0.93,,Samsung
+V106,8/22/2025,92.8,1.51,,Vespar
+V107,8/29/2025,92.4,1.6,,Quimica Amparo
+V108,9/5/2025,91.1,1.46,,Staples
+V109,9/12/2025,92.5,1.36,,KLK Plantation
+V110,9/19/2025,91.8,1.57,,Penske

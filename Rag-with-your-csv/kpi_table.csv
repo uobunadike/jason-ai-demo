@@ -1,0 +1,57 @@
+Table name - forecast_data,,,,,,,,,,,,,,,,,,,,
+Store predicted and actual demand to track forecast performance ,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+Columns,,Description,,,,,,,,,,,,,,,,,,
+forecast_id,,Unique row ID,,,,,,,,,forecast_id,sku_id,period_id,forecasted_demand,actual_demand,sku_id,item_name,,sku_id,item_name
+sku_id,,Product ID ,,,,,,,,,F001,SKU456,2025-10,739,717,SKU-202,Widget E,,SKU-123,Widget A
+period_id,,"Forecast period (e.g.. Jan-2025) the time period during which a forecast is made and measure. Could be month, week, or quarter ",,,,,,,,,F002,SKU123,2025-10,401,496,SKU-303,Widget F,,SKU-456,Widget B
+forecasted_demand,,Predicted demand ofr the SKU,,,,,,,,,F003,SKU123,2025-11,516,483,SKU-456,Widget B,,SKU-789,Widget C
+actual_demand,,Actual demand recorded for that period,,,,,,,,,F004,SKU123,2025-03,545,489,SKU-456,Widget B,,SKU-101,Widget D
+,,,,,,,,,,,F005,SKU123,2025-03,302,306,SKU-202,Widget E,,SKU-202,Widget E
+,,,,,,,,,,,F006,SKU456,2025-12,908,928,SKU-202,Widget E,,SKU-303,Widget F
+,,,,,,,,,,,F007,SKU456,2025-01,537,510,SKU-789,Widget C,,SKU-404,Widget G
+Used For KPIs:,,,,,,,,,,,F008,SKU456,2025-12,764,682,SKU-456,Widget B,,SKU-505,Widget H
+Forecast Acuracy,,,,,,,,,,,F009,SKU123,2025-05,940,990,SKU-606,Widget I,,SKU-606,Widget I
+,,,,,,,,,,,F010,SKU123,2025-07,417,456,SKU-123,Widget A,,,
+,,,,,,,,,,,F011,SKU123,2025-11,452,420,SKU-202,Widget E,,,
+forecast_id,sku_id,period_id,forecasted_demand,actual_demand,,,,,,,F012,SKU123,2025-02,361,303,SKU-606,Widget I,,,
+F001,SKU123,2025-01,500,470,,,,,,,F013,SKU456,2025-10,882,855,SKU-101,Widget D,,,
+,,,,,,,,,,,F014,SKU456,2025-02,779,855,SKU-123,Widget A,,,
+,,,,,,,,,,,F015,SKU456,2025-12,712,681,SKU-123,Widget A,,,
+,,,,,,,,,,,F016,SKU456,2025-08,382,435,SKU-606,Widget I,,,
+,,,,,,,,,,,F017,SKU123,2025-07,630,684,SKU-123,Widget A,,,
+,,,,,,,,,,,F018,SKU456,2025-01,393,351,SKU-101,Widget D,,,
+,,,,,,,,,,,F019,SKU123,2025-11,575,622,SKU-303,Widget F,,,
+,,,,,,,,,,,F020,SKU123,2025-03,781,813,SKU-404,Widget G,,,
+,,,,,,,,,,,F021,SKU456,2025-05,485,534,SKU-303,Widget F,,,
+,,,,,,,,,,,F022,SKU456,2025-11,803,726,SKU-404,Widget G,,,
+,,,,,,,,,,,F023,SKU456,2025-06,718,703,SKU-606,Widget I,,,
+,,,,,,,,,,,F024,SKU456,2025-11,407,348,SKU-606,Widget I,,,
+,,,,,,,,,,,F025,SKU456,2025-07,807,780,SKU-606,Widget I,,,
+,,,,,,,,,,,F026,SKU456,2025-09,337,353,SKU-456,Widget B,,,
+,,,,,,,,,,,F027,SKU123,2025-06,558,540,SKU-606,Widget I,,,
+,,,,,,,,,,,F028,SKU123,2025-07,826,726,SKU-202,Widget E,,,
+,,,,,,,,,,,F029,SKU456,2025-07,355,303,SKU-202,Widget E,,,
+,,,,,,,,,,,F030,SKU456,2025-10,810,870,SKU-202,Widget E,,,
+,,,,,,,,,,,F031,SKU456,2025-01,508,476,SKU-404,Widget G,,,
+,,,,,,,,,,,F032,SKU123,2025-05,748,826,SKU-202,Widget E,,,
+,,,,,,,,,,,F033,SKU456,2025-02,329,390,SKU-456,Widget B,,,
+,,,,,,,,,,,F034,SKU123,2025-12,462,441,SKU-505,Widget H,,,
+,,,,,,,,,,,F035,SKU123,2025-09,717,640,SKU-202,Widget E,,,
+,,,,,,,,,,,F036,SKU123,2025-02,772,702,SKU-404,Widget G,,,
+,,,,,,,,,,,F037,SKU123,2025-08,598,628,SKU-606,Widget I,,,
+,,,,,,,,,,,F038,SKU456,2025-07,794,814,SKU-123,Widget A,,,
+,,,,,,,,,,,F039,SKU123,2025-08,864,801,SKU-606,Widget I,,,
+,,,,,,,,,,,F040,SKU456,2025-04,913,943,SKU-456,Widget B,,,
+,,,,,,,,,,,F041,SKU123,2025-02,582,679,SKU-303,Widget F,,,
+,,,,,,,,,,,F042,SKU456,2025-06,819,787,SKU-101,Widget D,,,
+,,,,,,,,,,,F043,SKU123,2025-05,605,655,SKU-101,Widget D,,,
+,,,,,,,,,,,F044,SKU456,2025-03,757,794,SKU-456,Widget B,,,
+,,,,,,,,,,,F045,SKU456,2025-06,640,681,SKU-456,Widget B,,,
+,,,,,,,,,,,F046,SKU456,2025-08,629,577,SKU-456,Widget B,,,
+,,,,,,,,,,,F047,SKU123,2025-10,692,651,SKU-202,Widget E,,,
+,,,,,,,,,,,F048,SKU456,2025-01,625,715,SKU-606,Widget I,,,
+,,,,,,,,,,,F049,SKU456,2025-12,690,688,SKU-789,Widget C,,,
+,,,,,,,,,,,F050,SKU123,2025-08,337,269,SKU-123,Widget A,,,

@@ -1,0 +1,11 @@
+sku_id,site,on_hand,allocated,in_transit,safety_stock,status,days_of_cover_hint
+SKU-123,ATL-01,159,26,14,15,OK,
+SKU-456,ATL-01,134,37,17,15,OK,
+SKU-789,ATL-01,21,2,44,20,OK,
+SKU-101,ATL-01,128,21,17,25,OK,
+SKU-202,ATL-01,59,6,48,15,OK,
+SKU-303,ATL-01,106,6,5,15,OK,
+SKU-404,ATL-01,117,6,22,20,OK,
+SKU-505,ATL-01,489,70,54,25,Damaged,
+SKU-606,ATL-01,58,40,22,15,Low Stock,7.0
+SKU-123,DAL-01,228,10,4,15,OK,

@@ -1,0 +1,97 @@
+customer_id,task,owner,due_date,status
+CUST0001,Request missing docs,Ops Intake,2025-10-09,open
+CUST0001,Validate addresses,Master Data,2025-10-09,done
+CUST0001,Send onboarding packet,Claire (Sales),2025-10-08,in_progress
+CUST0001,Create SAP request,Master Data,2025-10-10,in_progress
+CUST0002,Request missing docs,Ops Intake,2025-10-04,in_progress
+CUST0002,Validate addresses,Ops Intake,2025-10-06,done
+CUST0002,Send onboarding packet,Ops Intake,2025-10-03,done
+CUST0002,Create SAP request,Ops Intake,2025-10-05,done
+CUST0003,Request missing docs,Claire (Sales),2025-10-10,in_progress
+CUST0003,Validate addresses,Claire (Sales),2025-10-07,blocked
+CUST0003,Send onboarding packet,Claire (Sales),2025-10-03,blocked
+CUST0003,Create SAP request,Master Data,2025-10-09,open
+CUST0004,Request missing docs,Master Data,2025-10-04,open
+CUST0004,Validate addresses,Ops Intake,2025-10-09,blocked
+CUST0004,Send onboarding packet,Ops Intake,2025-10-09,done
+CUST0004,Create SAP request,Master Data,2025-10-09,blocked
+CUST0005,Request missing docs,Credit Desk,2025-10-04,blocked
+CUST0005,Validate addresses,Credit Desk,2025-10-09,open
+CUST0005,Send onboarding packet,Credit Desk,2025-10-07,done
+CUST0005,Create SAP request,Claire (Sales),2025-10-06,in_progress
+CUST0006,Request missing docs,Credit Desk,2025-10-08,done
+CUST0006,Validate addresses,Claire (Sales),2025-10-05,in_progress
+CUST0006,Send onboarding packet,Master Data,2025-10-04,in_progress
+CUST0006,Create SAP request,Claire (Sales),2025-10-04,in_progress
+CUST0007,Request missing docs,Master Data,2025-10-10,blocked
+CUST0007,Validate addresses,Master Data,2025-10-07,in_progress
+CUST0007,Send onboarding packet,Claire (Sales),2025-10-08,blocked
+CUST0007,Create SAP request,Claire (Sales),2025-10-07,blocked
+CUST0008,Request missing docs,Ops Intake,2025-10-08,open
+CUST0008,Validate addresses,Master Data,2025-10-03,blocked
+CUST0008,Send onboarding packet,Claire (Sales),2025-10-10,open
+CUST0008,Create SAP request,Credit Desk,2025-10-09,blocked
+CUST0009,Request missing docs,Credit Desk,2025-10-06,done
+CUST0009,Validate addresses,Ops Intake,2025-10-04,open
+CUST0009,Send onboarding packet,Ops Intake,2025-10-08,done
+CUST0009,Create SAP request,Ops Intake,2025-10-06,open
+CUST0010,Request missing docs,Credit Desk,2025-10-07,open
+CUST0010,Validate addresses,Credit Desk,2025-10-04,done
+CUST0010,Send onboarding packet,Master Data,2025-10-10,open
+CUST0010,Create SAP request,Claire (Sales),2025-10-08,done
+CUST0011,Request missing docs,Credit Desk,2025-10-04,in_progress
+CUST0011,Validate addresses,Claire (Sales),2025-10-06,blocked
+CUST0011,Send onboarding packet,Master Data,2025-10-05,done
+CUST0011,Create SAP request,Credit Desk,2025-10-07,blocked
+CUST0012,Request missing docs,Master Data,2025-10-05,open
+CUST0012,Validate addresses,Credit Desk,2025-10-09,done
+CUST0012,Send onboarding packet,Ops Intake,2025-10-04,blocked
+CUST0012,Create SAP request,Credit Desk,2025-10-03,done
+CUST0013,Request missing docs,Ops Intake,2025-10-10,open
+CUST0013,Validate addresses,Master Data,2025-10-08,in_progress
+CUST0013,Send onboarding packet,Master Data,2025-10-07,blocked
+CUST0013,Create SAP request,Ops Intake,2025-10-06,done
+CUST0014,Request missing docs,Claire (Sales),2025-10-07,open
+CUST0014,Validate addresses,Ops Intake,2025-10-07,blocked
+CUST0014,Send onboarding packet,Ops Intake,2025-10-09,open
+CUST0014,Create SAP request,Ops Intake,2025-10-10,done
+CUST0015,Request missing docs,Credit Desk,2025-10-10,in_progress
+CUST0015,Validate addresses,Master Data,2025-10-10,open
+CUST0015,Send onboarding packet,Claire (Sales),2025-10-03,done
+CUST0015,Create SAP request,Ops Intake,2025-10-05,blocked
+CUST0016,Request missing docs,Credit Desk,2025-10-06,blocked
+CUST0016,Validate addresses,Ops Intake,2025-10-04,done
+CUST0016,Send onboarding packet,Claire (Sales),2025-10-03,blocked
+CUST0016,Create SAP request,Master Data,2025-10-03,blocked
+CUST0017,Request missing docs,Master Data,2025-10-05,in_progress
+CUST0017,Validate addresses,Claire (Sales),2025-10-10,open
+CUST0017,Send onboarding packet,Credit Desk,2025-10-06,open
+CUST0017,Create SAP request,Ops Intake,2025-10-03,done
+CUST0018,Request missing docs,Master Data,2025-10-08,in_progress
+CUST0018,Validate addresses,Master Data,2025-10-10,done
+CUST0018,Send onboarding packet,Credit Desk,2025-10-04,blocked
+CUST0018,Create SAP request,Claire (Sales),2025-10-09,in_progress
+CUST0019,Request missing docs,Credit Desk,2025-10-09,done
+CUST0019,Validate addresses,Claire (Sales),2025-10-04,blocked
+CUST0019,Send onboarding packet,Credit Desk,2025-10-05,open
+CUST0019,Create SAP request,Ops Intake,2025-10-10,open
+CUST0020,Request missing docs,Credit Desk,2025-10-09,done
+CUST0020,Validate addresses,Credit Desk,2025-10-06,open
+CUST0020,Send onboarding packet,Claire (Sales),2025-10-05,blocked
+CUST0020,Create SAP request,Master Data,2025-10-04,done
+CUST0021,Request missing docs,Credit Desk,2025-10-07,in_progress
+CUST0021,Validate addresses,Ops Intake,2025-10-08,in_progress
+CUST0021,Send onboarding packet,Claire (Sales),2025-10-06,in_progress
+CUST0021,Create SAP request,Ops Intake,2025-10-10,open
+CUST0022,Request missing docs,Claire (Sales),2025-10-10,blocked
+CUST0022,Validate addresses,Credit Desk,2025-10-05,in_progress
+CUST0022,Send onboarding packet,Ops Intake,2025-10-09,open
+CUST0022,Create SAP request,Claire (Sales),2025-10-05,done
+CUST0023,Request missing docs,Ops Intake,2025-10-05,done
+CUST0023,Validate addresses,Claire (Sales),2025-10-03,open
+CUST0023,Send onboarding packet,Claire (Sales),2025-10-07,in_progress
+CUST0023,Create SAP request,Master Data,2025-10-03,blocked
+CUST0024,Request missing docs,Credit Desk,2025-10-09,in_progress
+CUST0024,Validate addresses,Credit Desk,2025-10-04,done
+CUST0024,Send onboarding packet,Ops Intake,2025-10-10,open
+CUST0024,Create SAP request,Credit Desk,2025-10-10,in_progress

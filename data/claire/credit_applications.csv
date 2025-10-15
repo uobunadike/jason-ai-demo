@@ -1,0 +1,25 @@
+customer_id,submitted_date,status,trade_refs_status,bank_verification_status,recommended_terms,recommended_credit_limit,approver,approved_date,credit_score,risk_band,policy_deviation,exception_status,expected_decision_date,rationale
+CUST0001,2025-09-11,denied,pending,pending,Net 45,50000,Credit Desk B,,720,Medium,N,,2025-09-18,Auto-recommendation: payment terms by risk + order size
+CUST0002,2025-09-11,in_review,pending,failed,Net 60,75000,Credit Desk A,,700,Medium,N,,2025-09-12,Auto-recommendation: payment terms by risk + order size
+CUST0003,2025-09-25,denied,verified,pending,Net 60,25000,Credit Desk C,,760,Med-Low,N,,2025-09-28,Auto-recommendation: payment terms by risk + order size
+CUST0004,2025-09-26,submitted,pending,pending,Net 45,25000,Credit Desk A,,700,Medium,Y,requested,2025-09-27,Auto-recommendation: payment terms by risk + order size
+CUST0005,2025-09-08,hold_duplicate_check,verified,verified,Net 60,100000,Credit Desk A,,620,High,N,,2025-09-09,Auto-recommendation: payment terms by risk + order size
+CUST0006,2025-09-19,in_review,verified,failed,Net 60,75000,Credit Desk C,,700,Medium,N,,2025-09-20,Auto-recommendation: payment terms by risk + order size
+CUST0007,2025-09-18,hold_duplicate_check,pending,verified,Net 30,100000,Credit Desk C,,760,Med-Low,N,,2025-09-24,Auto-recommendation: payment terms by risk + order size
+CUST0008,2025-09-23,denied,pending,pending,Net 45,10000,Credit Desk C,,660,Med-High,N,,2025-09-28,Auto-recommendation: payment terms by risk + order size
+CUST0009,2025-09-15,denied,insufficient,pending,Net 30,50000,Credit Desk A,,620,High,N,,2025-09-20,Auto-recommendation: payment terms by risk + order size
+CUST0010,2025-09-18,denied,verified,pending,Net 60,75000,Credit Desk C,,700,Medium,N,,2025-09-20,Auto-recommendation: payment terms by risk + order size
+CUST0011,2025-09-20,approved,verified,verified,Net 30,75000,Credit Desk B,2025-09-23,620,High,N,,2025-09-25,Auto-recommendation: payment terms by risk + order size
+CUST0012,2025-09-12,draft,verified,failed,Net 30,50000,Credit Desk B,,700,Medium,N,,2025-09-16,Auto-recommendation: payment terms by risk + order size
+CUST0013,2025-09-24,approved,pending,verified,Net 60,10000,Credit Desk B,2025-09-28,800,Med-Low,N,,2025-09-26,Auto-recommendation: payment terms by risk + order size
+CUST0014,2025-09-23,draft,pending,failed,Net 45,100000,Credit Desk C,,700,Medium,N,,2025-09-27,Auto-recommendation: payment terms by risk + order size
+CUST0015,2025-09-19,hold_duplicate_check,insufficient,verified,Net 30,25000,Credit Desk C,,760,Med-Low,N,,2025-09-20,Auto-recommendation: payment terms by risk + order size
+CUST0016,2025-09-09,approved,pending,pending,Net 60,75000,Credit Desk B,2025-09-16,720,Medium,N,,2025-09-15,Auto-recommendation: payment terms by risk + order size
+CUST0017,2025-09-16,submitted,insufficient,verified,Net 45,75000,Credit Desk A,,660,Med-High,N,,2025-09-23,Auto-recommendation: payment terms by risk + order size
+CUST0018,2025-10-03,denied,verified,failed,Net 30,25000,Credit Desk A,,760,Med-Low,N,,2025-10-09,Auto-recommendation: payment terms by risk + order size
+CUST0019,2025-09-16,hold_duplicate_check,pending,verified,Net 30,25000,Credit Desk A,,800,Med-Low,N,,2025-09-20,Auto-recommendation: payment terms by risk + order size
+CUST0020,2025-09-13,submitted,insufficient,failed,Net 45,50000,Credit Desk B,,760,Med-Low,N,,2025-09-19,Auto-recommendation: payment terms by risk + order size
+CUST0021,2025-09-20,approved,insufficient,pending,Net 45,25000,Credit Desk B,2025-09-24,800,Med-Low,N,,2025-09-24,Auto-recommendation: payment terms by risk + order size
+CUST0022,2025-09-27,denied,pending,verified,Net 60,25000,Credit Desk B,,660,Med-High,N,,2025-10-02,Auto-recommendation: payment terms by risk + order size
+CUST0023,2025-09-23,denied,verified,failed,Net 45,10000,Credit Desk B,,660,Med-High,N,,2025-09-30,Auto-recommendation: payment terms by risk + order size
+CUST0024,2025-09-15,denied,pending,verified,Net 60,75000,Credit Desk C,,660,Med-High,N,,2025-09-19,Auto-recommendation: payment terms by risk + order size

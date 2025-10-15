@@ -1,0 +1,4 @@
+option_type,sku_id,vendor_id,vendor_name,qty,est_landed_cost,lead_time_days
+FASTEST,SKU-606,V300,QuickParts Inc.,160,6479.0,5
+CHEAPEST,SKU-606,V200,Northwind Supply,160,5897.6,14
+HYBRID,SKU-606,V300+V200,MULTI,160,6284.44,5

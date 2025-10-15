@@ -1,0 +1,121 @@
+customer_id,document_type,required,status,received_date,file_ref,due_date,envelope_id,reminder_schedule
+CUST0001,NDA,True,requested,,,2025-10-08,ENV-30435,every 2 days
+CUST0001,MSA,True,requested,,,2025-10-10,ENV-81913,every 2 days
+CUST0001,W-9/W-8,True,requested,,,2025-10-10,ENV-81864,every 2 days
+CUST0001,Certificate of Insurance,True,requested,,,2025-10-06,ENV-27168,every 2 days
+CUST0001,Resale Certificate,False,not_required,,,,,
+CUST0002,NDA,True,requested,,,2025-10-12,ENV-11866,every 2 days
+CUST0002,MSA,True,missing,,,2025-10-11,,every 2 days
+CUST0002,W-9/W-8,True,requested,,,2025-10-11,ENV-23470,every 2 days
+CUST0002,Certificate of Insurance,True,missing,,,2025-10-08,,every 2 days
+CUST0002,Resale Certificate,False,not_required,,,,,
+CUST0003,NDA,True,requested,,,2025-10-13,ENV-66860,every 2 days
+CUST0003,MSA,True,missing,,,2025-10-12,,every 2 days
+CUST0003,W-9/W-8,True,received,2025-09-19,CUST0003_W-9/W-8.pdf,,,
+CUST0003,Certificate of Insurance,True,received,2025-09-16,CUST0003_Certificate_of_Insurance.pdf,,,
+CUST0003,Resale Certificate,False,not_required,,,,,
+CUST0004,NDA,True,missing,,,2025-10-07,,every 2 days
+CUST0004,MSA,True,missing,,,2025-10-13,,every 2 days
+CUST0004,W-9/W-8,True,received,2025-09-20,CUST0004_W-9/W-8.pdf,,,
+CUST0004,Certificate of Insurance,True,missing,,,2025-10-06,,every 2 days
+CUST0004,Resale Certificate,True,received,2025-09-22,CUST0004_Resale_Certificate.pdf,,,
+CUST0005,NDA,True,received,2025-09-19,CUST0005_NDA.pdf,,,
+CUST0005,MSA,True,requested,,,2025-10-09,ENV-43995,every 2 days
+CUST0005,W-9/W-8,True,received,2025-09-26,CUST0005_W-9/W-8.pdf,,,
+CUST0005,Certificate of Insurance,True,requested,,,2025-10-08,ENV-64920,every 2 days
+CUST0005,Resale Certificate,True,received,2025-09-21,CUST0005_Resale_Certificate.pdf,,,
+CUST0006,NDA,True,received,2025-09-22,CUST0006_NDA.pdf,,,
+CUST0006,MSA,True,missing,,,2025-10-06,,every 2 days
+CUST0006,W-9/W-8,True,requested,,,2025-10-07,ENV-70052,every 2 days
+CUST0006,Certificate of Insurance,True,missing,,,2025-10-06,,every 2 days
+CUST0006,Resale Certificate,True,requested,,,2025-10-08,ENV-86460,every 2 days
+CUST0007,NDA,True,received,2025-09-30,CUST0007_NDA.pdf,,,
+CUST0007,MSA,True,requested,,,2025-10-11,ENV-65132,every 2 days
+CUST0007,W-9/W-8,True,requested,,,2025-10-06,ENV-75752,every 2 days
+CUST0007,Certificate of Insurance,True,received,2025-09-21,CUST0007_Certificate_of_Insurance.pdf,,,
+CUST0007,Resale Certificate,True,received,2025-10-02,CUST0007_Resale_Certificate.pdf,,,
+CUST0008,NDA,True,received,2025-09-22,CUST0008_NDA.pdf,,,
+CUST0008,MSA,True,missing,,,2025-10-08,,every 2 days
+CUST0008,W-9/W-8,True,received,2025-09-15,CUST0008_W-9/W-8.pdf,,,
+CUST0008,Certificate of Insurance,True,requested,,,2025-10-11,ENV-12451,every 2 days
+CUST0008,Resale Certificate,False,not_required,,,,,
+CUST0009,NDA,True,missing,,,2025-10-13,,every 2 days
+CUST0009,MSA,True,received,2025-09-18,CUST0009_MSA.pdf,,,
+CUST0009,W-9/W-8,True,missing,,,2025-10-07,,every 2 days
+CUST0009,Certificate of Insurance,True,requested,,,2025-10-13,ENV-29634,every 2 days
+CUST0009,Resale Certificate,True,received,2025-09-18,CUST0009_Resale_Certificate.pdf,,,
+CUST0010,NDA,True,missing,,,2025-10-13,,every 2 days
+CUST0010,MSA,True,received,2025-10-02,CUST0010_MSA.pdf,,,
+CUST0010,W-9/W-8,True,requested,,,2025-10-10,ENV-91146,every 2 days
+CUST0010,Certificate of Insurance,True,missing,,,2025-10-07,,every 2 days
+CUST0010,Resale Certificate,False,not_required,,,,,
+CUST0011,NDA,True,missing,,,2025-10-07,,every 2 days
+CUST0011,MSA,True,requested,,,2025-10-11,ENV-52727,every 2 days
+CUST0011,W-9/W-8,True,requested,,,2025-10-10,ENV-99434,every 2 days
+CUST0011,Certificate of Insurance,True,received,2025-09-20,CUST0011_Certificate_of_Insurance.pdf,,,
+CUST0011,Resale Certificate,False,not_required,,,,,
+CUST0012,NDA,True,missing,,,2025-10-06,,every 2 days
+CUST0012,MSA,True,requested,,,2025-10-09,ENV-73240,every 2 days
+CUST0012,W-9/W-8,True,missing,,,2025-10-11,,every 2 days
+CUST0012,Certificate of Insurance,True,received,2025-09-22,CUST0012_Certificate_of_Insurance.pdf,,,
+CUST0012,Resale Certificate,False,not_required,,,,,
+CUST0013,NDA,True,received,2025-09-16,CUST0013_NDA.pdf,,,
+CUST0013,MSA,True,received,2025-09-13,CUST0013_MSA.pdf,,,
+CUST0013,W-9/W-8,True,requested,,,2025-10-10,ENV-46296,every 2 days
+CUST0013,Certificate of Insurance,True,requested,,,2025-10-11,ENV-15531,every 2 days
+CUST0013,Resale Certificate,True,received,2025-09-23,CUST0013_Resale_Certificate.pdf,,,
+CUST0014,NDA,True,requested,,,2025-10-11,ENV-76547,every 2 days
+CUST0014,MSA,True,requested,,,2025-10-09,ENV-69267,every 2 days
+CUST0014,W-9/W-8,True,missing,,,2025-10-11,,every 2 days
+CUST0014,Certificate of Insurance,True,missing,,,2025-10-09,,every 2 days
+CUST0014,Resale Certificate,True,requested,,,2025-10-09,ENV-18305,every 2 days
+CUST0015,NDA,True,missing,,,2025-10-09,,every 2 days
+CUST0015,MSA,True,requested,,,2025-10-12,ENV-52678,every 2 days
+CUST0015,W-9/W-8,True,received,2025-09-16,CUST0015_W-9/W-8.pdf,,,
+CUST0015,Certificate of Insurance,True,received,2025-09-30,CUST0015_Certificate_of_Insurance.pdf,,,
+CUST0015,Resale Certificate,True,requested,,,2025-10-13,ENV-89447,every 2 days
+CUST0016,NDA,True,requested,,,2025-10-11,ENV-77130,every 2 days
+CUST0016,MSA,True,missing,,,2025-10-06,,every 2 days
+CUST0016,W-9/W-8,True,requested,,,2025-10-06,ENV-46331,every 2 days
+CUST0016,Certificate of Insurance,True,missing,,,2025-10-10,,every 2 days
+CUST0016,Resale Certificate,True,requested,,,2025-10-13,ENV-76605,every 2 days
+CUST0017,NDA,True,requested,,,2025-10-10,ENV-79898,every 2 days
+CUST0017,MSA,True,requested,,,2025-10-09,ENV-72657,every 2 days
+CUST0017,W-9/W-8,True,received,2025-09-29,CUST0017_W-9/W-8.pdf,,,
+CUST0017,Certificate of Insurance,True,requested,,,2025-10-13,ENV-42460,every 2 days
+CUST0017,Resale Certificate,True,received,2025-09-25,CUST0017_Resale_Certificate.pdf,,,
+CUST0018,NDA,True,missing,,,2025-10-11,,every 2 days
+CUST0018,MSA,True,missing,,,2025-10-07,,every 2 days
+CUST0018,W-9/W-8,True,received,2025-09-29,CUST0018_W-9/W-8.pdf,,,
+CUST0018,Certificate of Insurance,True,requested,,,2025-10-07,ENV-68658,every 2 days
+CUST0018,Resale Certificate,True,missing,,,2025-10-09,,every 2 days
+CUST0019,NDA,True,received,2025-09-30,CUST0019_NDA.pdf,,,
+CUST0019,MSA,True,received,2025-09-24,CUST0019_MSA.pdf,,,
+CUST0019,W-9/W-8,True,requested,,,2025-10-11,ENV-61427,every 2 days
+CUST0019,Certificate of Insurance,True,requested,,,2025-10-09,ENV-67949,every 2 days
+CUST0019,Resale Certificate,False,not_required,,,,,
+CUST0020,NDA,True,requested,,,2025-10-06,ENV-19508,every 2 days
+CUST0020,MSA,True,missing,,,2025-10-13,,every 2 days
+CUST0020,W-9/W-8,True,requested,,,2025-10-11,ENV-41541,every 2 days
+CUST0020,Certificate of Insurance,True,received,2025-09-24,CUST0020_Certificate_of_Insurance.pdf,,,
+CUST0020,Resale Certificate,True,received,2025-10-01,CUST0020_Resale_Certificate.pdf,,,
+CUST0021,NDA,True,requested,,,2025-10-12,ENV-37877,every 2 days
+CUST0021,MSA,True,received,2025-09-27,CUST0021_MSA.pdf,,,
+CUST0021,W-9/W-8,True,requested,,,2025-10-13,ENV-49685,every 2 days
+CUST0021,Certificate of Insurance,True,requested,,,2025-10-08,ENV-26036,every 2 days
+CUST0021,Resale Certificate,False,not_required,,,,,
+CUST0022,NDA,True,requested,,,2025-10-11,ENV-94339,every 2 days
+CUST0022,MSA,True,requested,,,2025-10-07,ENV-96541,every 2 days
+CUST0022,W-9/W-8,True,received,2025-09-24,CUST0022_W-9/W-8.pdf,,,
+CUST0022,Certificate of Insurance,True,requested,,,2025-10-13,ENV-28740,every 2 days
+CUST0022,Resale Certificate,True,missing,,,2025-10-12,,every 2 days
+CUST0023,NDA,True,missing,,,2025-10-07,,every 2 days
+CUST0023,MSA,True,received,2025-09-28,CUST0023_MSA.pdf,,,
+CUST0023,W-9/W-8,True,requested,,,2025-10-08,ENV-38781,every 2 days
+CUST0023,Certificate of Insurance,True,missing,,,2025-10-08,,every 2 days
+CUST0023,Resale Certificate,False,not_required,,,,,
+CUST0024,NDA,True,missing,,,2025-10-08,,every 2 days
+CUST0024,MSA,True,missing,,,2025-10-13,,every 2 days
+CUST0024,W-9/W-8,True,missing,,,2025-10-08,,every 2 days
+CUST0024,Certificate of Insurance,True,received,2025-09-19,CUST0024_Certificate_of_Insurance.pdf,,,
+CUST0024,Resale Certificate,True,received,2025-09-24,CUST0024_Resale_Certificate.pdf,,,

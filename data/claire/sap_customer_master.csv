@@ -1,0 +1,25 @@
+customer_id,sold_to,bill_to,ship_to,payer,sales_org,dist_channel,division,payment_terms,incoterms,pricing_procedure,reconciliation_account,mandatory_fields_complete,sap_creation_status,sap_customer_number,order_ready,mandatory_fields_missing,readiness_check_status,readiness_issues
+CUST0001,CUST0001-S,CUST0001-B,CUST0001-H,CUST0001-P,3000,30,2,0002 Net 45,CIF,A01,140200,yes,in_progress,,no,,issues_found,partner_role_mismatch
+CUST0002,CUST0002-S,CUST0002-B,CUST0002-H,CUST0002-P,1000,20,3,0002 Net 45,DAP,B02,140100,yes,created,344907.0,no,,issues_found,missing_pricing
+CUST0003,CUST0003-S,CUST0003-B,CUST0003-H,CUST0003-P,2000,10,1,0003 Net 60,DAP,B02,140000,no,blocked_missing_data,,no,partner_roles,issues_found,delivery_block
+CUST0004,CUST0004-S,CUST0004-B,CUST0004-H,CUST0004-P,1000,30,2,0001 Net 30,DAP,A01,140100,no,blocked_missing_data,,no,partner_roles,issues_found,missing_pricing
+CUST0005,CUST0005-S,CUST0005-B,CUST0005-H,CUST0005-P,1000,20,2,0002 Net 45,DAP,C03,140100,no,blocked_missing_data,,no,address,issues_found,partner_role_mismatch
+CUST0006,CUST0006-S,CUST0006-B,CUST0006-H,CUST0006-P,3000,30,2,0002 Net 45,DAP,C03,140100,yes,in_progress,,no,,issues_found,partner_role_mismatch
+CUST0007,CUST0007-S,CUST0007-B,CUST0007-H,CUST0007-P,3000,10,1,0003 Net 60,DAP,B02,140000,no,blocked_missing_data,,no,payment_terms,issues_found,partner_role_mismatch
+CUST0008,CUST0008-S,CUST0008-B,CUST0008-H,CUST0008-P,1000,30,3,0001 Net 30,CIF,A01,140200,no,blocked_missing_data,,no,partner_roles,issues_found,credit_block
+CUST0009,CUST0009-S,CUST0009-B,CUST0009-H,CUST0009-P,1000,20,1,0002 Net 45,CIF,B02,140100,yes,not_started,,no,,issues_found,partner_role_mismatch
+CUST0010,CUST0010-S,CUST0010-B,CUST0010-H,CUST0010-P,1000,10,1,0003 Net 60,CIF,C03,140200,yes,created,693418.0,yes,,passed,
+CUST0011,CUST0011-S,CUST0011-B,CUST0011-H,CUST0011-P,1000,20,3,0002 Net 45,CIF,B02,140200,yes,requested,,no,,issues_found,missing_pricing
+CUST0012,CUST0012-S,CUST0012-B,CUST0012-H,CUST0012-P,1000,20,2,0003 Net 60,CIF,C03,140100,yes,created,401603.0,yes,,passed,
+CUST0013,CUST0013-S,CUST0013-B,CUST0013-H,CUST0013-P,2000,10,2,0002 Net 45,FOB,A01,140100,no,blocked_missing_data,,no,reconciliation_account,issues_found,delivery_block
+CUST0014,CUST0014-S,CUST0014-B,CUST0014-H,CUST0014-P,3000,20,1,0003 Net 60,CIF,B02,140000,yes,in_progress,,no,,issues_found,partner_role_mismatch
+CUST0015,CUST0015-S,CUST0015-B,CUST0015-H,CUST0015-P,3000,30,2,0002 Net 45,FOB,C03,140100,yes,not_started,,no,,issues_found,credit_block
+CUST0016,CUST0016-S,CUST0016-B,CUST0016-H,CUST0016-P,3000,20,3,0003 Net 60,DAP,C03,140000,yes,requested,,no,,issues_found,missing_pricing
+CUST0017,CUST0017-S,CUST0017-B,CUST0017-H,CUST0017-P,2000,20,1,0003 Net 60,CIF,C03,140000,yes,not_started,,no,,issues_found,credit_block
+CUST0018,CUST0018-S,CUST0018-B,CUST0018-H,CUST0018-P,2000,30,2,0001 Net 30,FOB,A01,140200,yes,in_progress,,no,,issues_found,partner_role_mismatch
+CUST0019,CUST0019-S,CUST0019-B,CUST0019-H,CUST0019-P,3000,30,2,0001 Net 30,CIF,B02,140100,no,blocked_missing_data,,no,reconciliation_account,issues_found,partner_role_mismatch
+CUST0020,CUST0020-S,CUST0020-B,CUST0020-H,CUST0020-P,1000,20,1,0001 Net 30,FOB,C03,140200,no,blocked_missing_data,,no,partner_roles,issues_found,delivery_block
+CUST0021,CUST0021-S,CUST0021-B,CUST0021-H,CUST0021-P,3000,20,1,0002 Net 45,FOB,B02,140200,no,blocked_missing_data,,no,payment_terms,issues_found,credit_block
+CUST0022,CUST0022-S,CUST0022-B,CUST0022-H,CUST0022-P,3000,30,3,0002 Net 45,DAP,B02,140200,yes,in_progress,,no,,issues_found,delivery_block
+CUST0023,CUST0023-S,CUST0023-B,CUST0023-H,CUST0023-P,3000,10,2,0001 Net 30,DAP,C03,140100,no,blocked_missing_data,,no,reconciliation_account,issues_found,partner_role_mismatch
+CUST0024,CUST0024-S,CUST0024-B,CUST0024-H,CUST0024-P,3000,10,3,0002 Net 45,DAP,B02,140200,no,blocked_missing_data,,no,reconciliation_account,issues_found,credit_block

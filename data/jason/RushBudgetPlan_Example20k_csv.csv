@@ -1,0 +1,2 @@
+option_type,sku_id,vendor_id,vendor_name,qty,est_landed_cost,lead_time_days,days_saved,priority_score,selected_under_budget_example_20k
+FASTEST,SKU-606,V300,QuickParts Inc.,160,6479.0,5,9,1.39,True

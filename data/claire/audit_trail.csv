@@ -1,0 +1,97 @@
+customer_id,event_time,actor,action,details
+CUST0001,2025-10-01T05:25:00,Ops Intake,intake_created,Intake Created
+CUST0001,2025-09-21T06:42:00,Claire (Sales),docs_requested,Docs Requested
+CUST0001,2025-09-20T07:32:00,Credit Bot,credit_submitted,Credit Submitted
+CUST0001,2025-09-13T02:21:00,Claire (Sales),sap_request_created,Sap Request Created
+CUST0002,2025-09-28T20:35:00,Credit Bot,intake_created,Intake Created
+CUST0002,2025-09-22T06:37:00,Ops Intake,docs_requested,Docs Requested
+CUST0002,2025-09-26T04:28:00,Master Data,credit_submitted,Credit Submitted
+CUST0002,2025-09-16T22:58:00,Claire (Sales),sap_request_created,Sap Request Created
+CUST0003,2025-09-28T01:39:00,Master Data,intake_created,Intake Created
+CUST0003,2025-09-16T09:51:00,Ops Intake,docs_requested,Docs Requested
+CUST0003,2025-09-22T04:40:00,Ops Intake,credit_submitted,Credit Submitted
+CUST0003,2025-09-20T04:13:00,Credit Bot,sap_request_created,Sap Request Created
+CUST0004,2025-09-14T13:28:00,Master Data,intake_created,Intake Created
+CUST0004,2025-09-14T14:30:00,Claire (Sales),docs_requested,Docs Requested
+CUST0004,2025-09-21T13:17:00,Claire (Sales),credit_submitted,Credit Submitted
+CUST0004,2025-09-19T05:41:00,Claire (Sales),sap_request_created,Sap Request Created
+CUST0005,2025-09-13T08:44:00,Ops Intake,intake_created,Intake Created
+CUST0005,2025-10-01T05:30:00,Ops Intake,docs_requested,Docs Requested
+CUST0005,2025-09-16T03:14:00,Master Data,credit_submitted,Credit Submitted
+CUST0005,2025-09-28T02:45:00,Claire (Sales),sap_request_created,Sap Request Created
+CUST0006,2025-09-14T01:53:00,Ops Intake,intake_created,Intake Created
+CUST0006,2025-10-02T09:40:00,Master Data,docs_requested,Docs Requested
+CUST0006,2025-09-28T10:16:00,Ops Intake,credit_submitted,Credit Submitted
+CUST0006,2025-09-19T07:11:00,Master Data,sap_request_created,Sap Request Created
+CUST0007,2025-10-01T01:52:00,Ops Intake,intake_created,Intake Created
+CUST0007,2025-09-15T13:18:00,Master Data,docs_requested,Docs Requested
+CUST0007,2025-09-16T11:40:00,Ops Intake,credit_submitted,Credit Submitted
+CUST0007,2025-09-18T06:39:00,Credit Bot,sap_request_created,Sap Request Created
+CUST0008,2025-09-12T01:44:00,Master Data,intake_created,Intake Created
+CUST0008,2025-09-26T16:43:00,Credit Bot,docs_requested,Docs Requested
+CUST0008,2025-09-25T14:11:00,Credit Bot,credit_submitted,Credit Submitted
+CUST0008,2025-09-26T01:15:00,Master Data,sap_request_created,Sap Request Created
+CUST0009,2025-09-22T08:38:00,Credit Bot,intake_created,Intake Created
+CUST0009,2025-09-23T20:24:00,Master Data,docs_requested,Docs Requested
+CUST0009,2025-09-20T12:11:00,Ops Intake,credit_submitted,Credit Submitted
+CUST0009,2025-09-23T22:42:00,Claire (Sales),sap_request_created,Sap Request Created
+CUST0010,2025-09-21T09:19:00,Credit Bot,intake_created,Intake Created
+CUST0010,2025-09-17T17:48:00,Credit Bot,docs_requested,Docs Requested
+CUST0010,2025-09-15T01:43:00,Ops Intake,credit_submitted,Credit Submitted
+CUST0010,2025-09-29T04:13:00,Ops Intake,sap_request_created,Sap Request Created
+CUST0011,2025-09-25T22:18:00,Ops Intake,intake_created,Intake Created
+CUST0011,2025-09-12T16:57:00,Claire (Sales),docs_requested,Docs Requested
+CUST0011,2025-09-19T13:15:00,Master Data,credit_submitted,Credit Submitted
+CUST0011,2025-09-29T02:11:00,Ops Intake,sap_request_created,Sap Request Created
+CUST0012,2025-10-02T06:01:00,Ops Intake,intake_created,Intake Created
+CUST0012,2025-09-19T03:01:00,Master Data,docs_requested,Docs Requested
+CUST0012,2025-09-17T03:48:00,Credit Bot,credit_submitted,Credit Submitted
+CUST0012,2025-09-22T14:19:00,Claire (Sales),sap_request_created,Sap Request Created
+CUST0013,2025-09-30T03:24:00,Ops Intake,intake_created,Intake Created
+CUST0013,2025-09-15T00:14:00,Claire (Sales),docs_requested,Docs Requested
+CUST0013,2025-09-27T10:04:00,Ops Intake,credit_submitted,Credit Submitted
+CUST0013,2025-10-01T11:10:00,Master Data,sap_request_created,Sap Request Created
+CUST0014,2025-09-27T00:05:00,Credit Bot,intake_created,Intake Created
+CUST0014,2025-10-01T23:41:00,Claire (Sales),docs_requested,Docs Requested
+CUST0014,2025-09-22T14:31:00,Master Data,credit_submitted,Credit Submitted
+CUST0014,2025-09-28T07:31:00,Credit Bot,sap_request_created,Sap Request Created
+CUST0015,2025-09-26T20:39:00,Ops Intake,intake_created,Intake Created
+CUST0015,2025-09-18T03:44:00,Ops Intake,docs_requested,Docs Requested
+CUST0015,2025-10-02T00:39:00,Credit Bot,credit_submitted,Credit Submitted
+CUST0015,2025-09-14T02:12:00,Ops Intake,sap_request_created,Sap Request Created
+CUST0016,2025-09-27T04:06:00,Master Data,intake_created,Intake Created
+CUST0016,2025-09-19T07:40:00,Claire (Sales),docs_requested,Docs Requested
+CUST0016,2025-09-20T02:54:00,Ops Intake,credit_submitted,Credit Submitted
+CUST0016,2025-09-28T08:40:00,Ops Intake,sap_request_created,Sap Request Created
+CUST0017,2025-10-02T15:36:00,Ops Intake,intake_created,Intake Created
+CUST0017,2025-09-18T15:39:00,Credit Bot,docs_requested,Docs Requested
+CUST0017,2025-09-14T00:24:00,Claire (Sales),credit_submitted,Credit Submitted
+CUST0017,2025-09-24T03:37:00,Ops Intake,sap_request_created,Sap Request Created
+CUST0018,2025-10-01T02:53:00,Master Data,intake_created,Intake Created
+CUST0018,2025-09-23T18:35:00,Credit Bot,docs_requested,Docs Requested
+CUST0018,2025-09-29T03:02:00,Credit Bot,credit_submitted,Credit Submitted
+CUST0018,2025-09-21T04:46:00,Ops Intake,sap_request_created,Sap Request Created
+CUST0019,2025-09-28T08:51:00,Master Data,intake_created,Intake Created
+CUST0019,2025-09-13T12:34:00,Master Data,docs_requested,Docs Requested
+CUST0019,2025-09-15T02:08:00,Ops Intake,credit_submitted,Credit Submitted
+CUST0019,2025-09-25T02:12:00,Claire (Sales),sap_request_created,Sap Request Created
+CUST0020,2025-09-16T09:27:00,Credit Bot,intake_created,Intake Created
+CUST0020,2025-09-30T05:53:00,Claire (Sales),docs_requested,Docs Requested
+CUST0020,2025-09-15T07:48:00,Ops Intake,credit_submitted,Credit Submitted
+CUST0020,2025-09-27T13:06:00,Master Data,sap_request_created,Sap Request Created
+CUST0021,2025-09-29T02:47:00,Master Data,intake_created,Intake Created
+CUST0021,2025-09-30T07:32:00,Claire (Sales),docs_requested,Docs Requested
+CUST0021,2025-09-18T19:28:00,Master Data,credit_submitted,Credit Submitted
+CUST0021,2025-09-18T05:57:00,Master Data,sap_request_created,Sap Request Created
+CUST0022,2025-09-23T00:59:00,Master Data,intake_created,Intake Created
+CUST0022,2025-09-24T23:13:00,Ops Intake,docs_requested,Docs Requested
+CUST0022,2025-09-14T21:58:00,Master Data,credit_submitted,Credit Submitted
+CUST0022,2025-09-21T01:56:00,Claire (Sales),sap_request_created,Sap Request Created
+CUST0023,2025-09-30T08:58:00,Credit Bot,intake_created,Intake Created
+CUST0023,2025-09-19T18:11:00,Ops Intake,docs_requested,Docs Requested
+CUST0023,2025-09-12T00:19:00,Master Data,credit_submitted,Credit Submitted
+CUST0023,2025-09-21T11:32:00,Master Data,sap_request_created,Sap Request Created
+CUST0024,2025-09-20T21:17:00,Ops Intake,intake_created,Intake Created
+CUST0024,2025-09-12T12:53:00,Ops Intake,docs_requested,Docs Requested
+CUST0024,2025-09-15T11:27:00,Ops Intake,credit_submitted,Credit Submitted
+CUST0024,2025-09-25T23:12:00,Claire (Sales),sap_request_created,Sap Request Created

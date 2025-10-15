@@ -1,0 +1,25 @@
+customer_id,sanction_flag,pep_flag,notes,cleared,cleared_date,screening_date,reviewer,eta_days,clearance_notes
+CUST0001,no,no,,yes,2025-10-01,2025-09-30,,,Cleared by Compliance
+CUST0002,no,no,,yes,2025-10-03,2025-10-02,,,Cleared by Compliance
+CUST0003,no,no,,yes,2025-09-30,2025-09-29,,,Cleared by Compliance
+CUST0004,no,no,Manual review queued,yes,2025-10-03,2025-09-29,,,Cleared by Compliance
+CUST0005,yes,no,Manual review queued,no,,2025-09-29,Compliance A,3,
+CUST0006,no,no,,yes,2025-09-30,2025-09-30,,,Cleared by Compliance
+CUST0007,no,no,,yes,2025-10-01,2025-09-28,,,Cleared by Compliance
+CUST0008,no,no,,yes,2025-10-02,2025-10-01,,,Cleared by Compliance
+CUST0009,no,no,,yes,2025-10-03,2025-10-03,,,Cleared by Compliance
+CUST0010,no,no,Manual review queued,yes,2025-10-02,2025-10-01,,,Cleared by Compliance
+CUST0011,no,no,Manual review queued,yes,2025-10-03,2025-10-03,,,Cleared by Compliance
+CUST0012,no,no,Manual review queued,yes,2025-10-02,2025-09-28,,,Cleared by Compliance
+CUST0013,yes,no,,no,,2025-10-02,Compliance A,3,
+CUST0014,no,no,,yes,2025-10-03,2025-09-30,,,Cleared by Compliance
+CUST0015,no,no,,yes,2025-10-02,2025-10-03,,,Cleared by Compliance
+CUST0016,no,no,,yes,2025-10-02,2025-10-01,,,Cleared by Compliance
+CUST0017,no,no,,yes,2025-10-01,2025-10-03,,,Cleared by Compliance
+CUST0018,yes,no,,yes,2025-10-01,2025-09-28,Compliance B,2,Cleared by Compliance
+CUST0019,no,no,,yes,2025-10-02,2025-10-03,,,Cleared by Compliance
+CUST0020,yes,no,Manual review queued,no,,2025-10-01,Compliance B,5,
+CUST0021,no,no,,yes,2025-09-30,2025-10-03,,,Cleared by Compliance
+CUST0022,no,yes,,yes,2025-10-02,2025-09-29,Compliance A,5,Cleared by Compliance
+CUST0023,no,no,,yes,2025-10-01,2025-10-02,,,Cleared by Compliance
+CUST0024,no,no,Manual review queued,yes,2025-10-01,2025-10-03,,,Cleared by Compliance

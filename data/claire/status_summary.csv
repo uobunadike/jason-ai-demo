@@ -1,0 +1,25 @@
+customer_id,stage,blockers,cycle_time_days,sla_days,owner,next_action,nudged
+CUST0001,sap_creation,Missing COI,5,7,Ops Intake,set_sales_area,N
+CUST0002,credit_review,,12,7,Credit Desk A,run_credit,N
+CUST0003,docs,Bank verification failed,1,7,Claire (Sales),create_bp,N
+CUST0004,sap_creation,Missing COI,15,14,Master Data,set_sales_area,N
+CUST0005,intake,Potential duplicate by Tax ID 33-7788123/21-4455667,14,10,Ops Intake,collect_docs,N
+CUST0006,sap_creation,,4,7,Claire (Sales),run_credit,N
+CUST0007,sap_creation,Potential duplicate by Tax ID 33-7788123/21-4455667,15,10,Ops Intake,collect_docs,N
+CUST0008,ready_to_order,Compliance review pending,10,14,Ops Intake,collect_docs,N
+CUST0009,sap_creation,,4,10,Credit Desk A,run_credit,N
+CUST0010,docs,Credit refs pending,7,10,Credit Desk A,send_welcome,N
+CUST0011,intake,,3,14,Credit Desk A,send_welcome,N
+CUST0012,sap_creation,Bank verification failed,20,10,Credit Desk A,send_welcome,Y
+CUST0013,credit_review,,7,7,Claire (Sales),set_sales_area,Y
+CUST0014,sap_creation,,12,7,Ops Intake,send_welcome,N
+CUST0015,intake,Potential duplicate by Tax ID 33-7788123/21-4455667,2,10,Ops Intake,run_credit,N
+CUST0016,intake,,8,10,Ops Intake,create_bp,N
+CUST0017,credit_review,,1,10,Master Data,collect_docs,N
+CUST0018,credit_review,,13,14,Master Data,collect_docs,N
+CUST0019,ready_to_order,Potential duplicate by Tax ID 33-7788123/21-4455667,11,10,Ops Intake,run_credit,N
+CUST0020,docs,,8,7,Credit Desk A,set_sales_area,N
+CUST0021,credit_review,,15,14,Master Data,collect_docs,N
+CUST0022,credit_review,,19,14,Ops Intake,run_credit,N
+CUST0023,docs,,11,7,Ops Intake,collect_docs,N
+CUST0024,ready_to_order,,10,10,Ops Intake,create_bp,Y

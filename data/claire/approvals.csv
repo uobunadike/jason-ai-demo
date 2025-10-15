@@ -1,0 +1,97 @@
+customer_id,approval_step,owner,status,due_date,escalated,manager_notified,escalation_level
+CUST0001,Docs Check,Compliance,rejected,2025-10-03,no,no,
+CUST0001,Credit Approval,Credit Desk A,escalated,2025-10-04,no,yes,2
+CUST0001,Compliance Review,Master Data,approved,2025-10-08,yes,no,
+CUST0001,SAP Creation,Master Data,escalated,2025-10-08,yes,yes,2
+CUST0002,Docs Check,Compliance,not_started,2025-10-06,no,no,
+CUST0002,Credit Approval,Credit Desk A,not_started,2025-10-06,no,yes,
+CUST0002,Compliance Review,Credit Desk A,escalated,2025-10-03,no,yes,3
+CUST0002,SAP Creation,Compliance,in_progress,2025-10-04,yes,yes,
+CUST0003,Docs Check,Credit Desk A,escalated,2025-10-05,no,yes,3
+CUST0003,Credit Approval,Credit Desk A,approved,2025-10-03,no,no,
+CUST0003,Compliance Review,Master Data,escalated,2025-10-03,yes,yes,3
+CUST0003,SAP Creation,Ops Team,rejected,2025-10-06,no,no,
+CUST0004,Docs Check,Compliance,escalated,2025-10-04,no,yes,3
+CUST0004,Credit Approval,Credit Desk A,approved,2025-10-07,yes,no,
+CUST0004,Compliance Review,Compliance,rejected,2025-10-07,yes,no,
+CUST0004,SAP Creation,Compliance,rejected,2025-10-07,yes,no,
+CUST0005,Docs Check,Compliance,approved,2025-10-05,no,no,
+CUST0005,Credit Approval,Master Data,not_started,2025-10-03,no,no,
+CUST0005,Compliance Review,Ops Team,rejected,2025-10-03,yes,no,
+CUST0005,SAP Creation,Compliance,in_progress,2025-10-07,no,no,
+CUST0006,Docs Check,Compliance,not_started,2025-10-05,yes,no,
+CUST0006,Credit Approval,Credit Desk A,rejected,2025-10-07,yes,no,
+CUST0006,Compliance Review,Ops Team,escalated,2025-10-08,yes,yes,1
+CUST0006,SAP Creation,Compliance,not_started,2025-10-04,no,no,
+CUST0007,Docs Check,Compliance,in_progress,2025-10-05,no,no,
+CUST0007,Credit Approval,Compliance,escalated,2025-10-07,no,yes,2
+CUST0007,Compliance Review,Ops Team,in_progress,2025-10-04,yes,no,
+CUST0007,SAP Creation,Ops Team,not_started,2025-10-05,no,no,
+CUST0008,Docs Check,Ops Team,not_started,2025-10-04,no,no,
+CUST0008,Credit Approval,Credit Desk A,in_progress,2025-10-05,no,no,
+CUST0008,Compliance Review,Compliance,not_started,2025-10-03,no,no,
+CUST0008,SAP Creation,Master Data,in_progress,2025-10-04,no,no,
+CUST0009,Docs Check,Compliance,in_progress,2025-10-07,no,no,
+CUST0009,Credit Approval,Compliance,not_started,2025-10-06,no,no,
+CUST0009,Compliance Review,Credit Desk A,rejected,2025-10-07,no,no,
+CUST0009,SAP Creation,Ops Team,rejected,2025-10-05,yes,no,
+CUST0010,Docs Check,Ops Team,in_progress,2025-10-08,no,no,
+CUST0010,Credit Approval,Master Data,escalated,2025-10-07,no,yes,3
+CUST0010,Compliance Review,Compliance,approved,2025-10-04,no,no,
+CUST0010,SAP Creation,Ops Team,rejected,2025-10-06,yes,no,
+CUST0011,Docs Check,Master Data,rejected,2025-10-07,yes,no,
+CUST0011,Credit Approval,Ops Team,rejected,2025-10-07,yes,no,
+CUST0011,Compliance Review,Credit Desk A,approved,2025-10-07,no,no,
+CUST0011,SAP Creation,Credit Desk A,not_started,2025-10-06,no,no,
+CUST0012,Docs Check,Ops Team,approved,2025-10-03,yes,yes,
+CUST0012,Credit Approval,Master Data,approved,2025-10-05,yes,no,
+CUST0012,Compliance Review,Credit Desk A,approved,2025-10-03,yes,no,
+CUST0012,SAP Creation,Credit Desk A,approved,2025-10-05,yes,no,
+CUST0013,Docs Check,Master Data,in_progress,2025-10-04,no,no,
+CUST0013,Credit Approval,Credit Desk A,not_started,2025-10-05,no,no,
+CUST0013,Compliance Review,Ops Team,approved,2025-10-07,no,no,
+CUST0013,SAP Creation,Master Data,in_progress,2025-10-04,no,no,
+CUST0014,Docs Check,Master Data,rejected,2025-10-05,no,no,
+CUST0014,Credit Approval,Master Data,in_progress,2025-10-04,yes,no,
+CUST0014,Compliance Review,Credit Desk A,approved,2025-10-03,yes,no,
+CUST0014,SAP Creation,Master Data,approved,2025-10-07,no,no,
+CUST0015,Docs Check,Master Data,escalated,2025-10-05,no,yes,1
+CUST0015,Credit Approval,Master Data,not_started,2025-10-05,no,no,
+CUST0015,Compliance Review,Ops Team,approved,2025-10-03,yes,no,
+CUST0015,SAP Creation,Compliance,in_progress,2025-10-04,no,no,
+CUST0016,Docs Check,Ops Team,in_progress,2025-10-06,yes,no,
+CUST0016,Credit Approval,Master Data,not_started,2025-10-03,no,no,
+CUST0016,Compliance Review,Ops Team,escalated,2025-10-07,no,yes,2
+CUST0016,SAP Creation,Credit Desk A,approved,2025-10-06,no,no,
+CUST0017,Docs Check,Ops Team,approved,2025-10-04,yes,no,
+CUST0017,Credit Approval,Ops Team,escalated,2025-10-08,no,yes,2
+CUST0017,Compliance Review,Credit Desk A,not_started,2025-10-05,yes,no,
+CUST0017,SAP Creation,Compliance,in_progress,2025-10-08,no,no,
+CUST0018,Docs Check,Master Data,approved,2025-10-03,yes,no,
+CUST0018,Credit Approval,Credit Desk A,approved,2025-10-05,no,no,
+CUST0018,Compliance Review,Compliance,approved,2025-10-03,no,no,
+CUST0018,SAP Creation,Master Data,rejected,2025-10-08,no,no,
+CUST0019,Docs Check,Ops Team,not_started,2025-10-05,yes,no,
+CUST0019,Credit Approval,Compliance,approved,2025-10-06,yes,no,
+CUST0019,Compliance Review,Master Data,in_progress,2025-10-08,no,no,
+CUST0019,SAP Creation,Compliance,rejected,2025-10-03,yes,no,
+CUST0020,Docs Check,Compliance,approved,2025-10-06,yes,no,
+CUST0020,Credit Approval,Ops Team,escalated,2025-10-04,yes,yes,2
+CUST0020,Compliance Review,Master Data,approved,2025-10-05,no,no,
+CUST0020,SAP Creation,Ops Team,escalated,2025-10-04,yes,yes,3
+CUST0021,Docs Check,Compliance,rejected,2025-10-04,no,no,
+CUST0021,Credit Approval,Credit Desk A,not_started,2025-10-06,no,no,
+CUST0021,Compliance Review,Master Data,not_started,2025-10-08,no,no,
+CUST0021,SAP Creation,Compliance,not_started,2025-10-07,yes,no,
+CUST0022,Docs Check,Credit Desk A,escalated,2025-10-03,no,yes,2
+CUST0022,Credit Approval,Compliance,rejected,2025-10-08,yes,no,
+CUST0022,Compliance Review,Master Data,escalated,2025-10-06,no,yes,1
+CUST0022,SAP Creation,Ops Team,in_progress,2025-10-05,yes,no,
+CUST0023,Docs Check,Credit Desk A,approved,2025-10-07,no,no,
+CUST0023,Credit Approval,Ops Team,approved,2025-10-04,yes,no,
+CUST0023,Compliance Review,Compliance,in_progress,2025-10-08,no,no,
+CUST0023,SAP Creation,Ops Team,escalated,2025-10-08,no,yes,1
+CUST0024,Docs Check,Master Data,approved,2025-10-06,no,no,
+CUST0024,Credit Approval,Ops Team,in_progress,2025-10-06,no,no,
+CUST0024,Compliance Review,Master Data,rejected,2025-10-04,no,no,
+CUST0024,SAP Creation,Credit Desk A,approved,2025-10-08,no,no,

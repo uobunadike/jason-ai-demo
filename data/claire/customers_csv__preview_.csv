@@ -1,0 +1,11 @@
+customer_id,legal_name,dba,tax_id,registered_address,billing_address,shipping_address,duplicate_check_name,duplicate_check_taxid
+CUST0001,Summit Logistics LLC,SummitCo,13-5614226,"4112 Market St, Atlanta, IL 98696","4112 Market St, Atlanta, IL 98696","4112 Market St, Atlanta, IL 98696",unchecked,unchecked
+CUST0002,Atlas Beverages LLC,AtlasCo,21-8078673,"620 Main St, Chicago, AZ 40495","620 Main St, Chicago, AZ 40495","620 Main St, Chicago, AZ 40495",unchecked,unchecked
+CUST0003,Vector Construction LLC,VectorCo,13-4335942,"9028 Washington St, Phoenix, FL 87236","9028 Washington St, Phoenix, FL 87236","9028 Washington St, Phoenix, FL 87236",unchecked,unchecked
+CUST0004,Iron Industries LLC,IronCo,30-8090293,"5674 Maple St, Atlanta, AZ 54118","5674 Maple St, Atlanta, AZ 54118","5674 Maple St, Atlanta, AZ 54118",unchecked,unchecked
+CUST0005,Prime Logistics LLC,PrimeCo,58-2622631,"5981 Cedar St, Nashville, OH 15695","5981 Cedar St, Nashville, OH 15695","5981 Cedar St, Nashville, OH 15695",unchecked,unchecked
+CUST0006,Atlas Healthcare LLC,AtlasCo,21-4455667,"6301 Oak St, Charlotte, OH 92397","6301 Oak St, Charlotte, OH 92397","6301 Oak St, Charlotte, OH 92397",unchecked,unchecked
+CUST0007,Nova Electronics LLC,NovaCo,83-4226067,"1239 Main St, Phoenix, OH 20458","1239 Main St, Phoenix, OH 20458","1239 Main St, Phoenix, OH 20458",unchecked,unchecked
+CUST0008,Green Logistics LLC,GreenCo,33-7788123,"7528 Cedar St, Atlanta, CO 56566","7528 Cedar St, Atlanta, CO 56566","7528 Cedar St, Atlanta, CO 56566",unchecked,unchecked
+CUST0009,Green Metals LLC,GreenCo,44-2197935,"2903 Market St, Atlanta, FL 59735","2903 Market St, Atlanta, FL 59735","2903 Market St, Atlanta, FL 59735",unchecked,unchecked
+CUST0010,Iron Metals LLC,IronCo,98-4684531,"5413 Main St, Phoenix, TX 51347","5413 Main St, Phoenix, TX 51347","5413 Main St, Phoenix, TX 51347",unchecked,unchecked

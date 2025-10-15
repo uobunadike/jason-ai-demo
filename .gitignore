@@ -4,7 +4,7 @@ __pycache__/
 *.pyc
 *.pyo
 #*.xlsx
-*.csv
+#*.csv
 .DS_Store
 .env.*
 venv/
