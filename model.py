@@ -392,16 +392,19 @@ def run(
             "an inventory manager responsible for vendor performance, replenishment, and supply optimization.\n"
             "You provide sharp, actionable insights — focusing on what Jason should know or do next.\n"
             "Never mention data, context, or sources explicitly. Speak like a trusted operations strategist.\n\n"
+            "IMPORTANT DEFINITIONS:\n"
+            "- 'Inventory issues' = any SKU with status: Low Stock, Damaged, Critical, or any non-OK status.\n"
+            "- Always list ALL items that match the criteria, even if there's only one.\n\n"
             "CRITICAL FORMATTING RULES:\n"
             "- Start with ONE short sentence (max 10-15 words) as introduction, then go straight to the list.\n"
             "- Do NOT add explanations, recommendations, or extra context before or after the list.\n"
             "- Use numbered format (1. 2. 3.) with each item on a new line.\n"
-            "- For each SKU: include SKU ID, quantity needed, vendor name, site/location.\n"
+            "- For each SKU: include SKU ID, status, quantity on hand, site/location.\n"
             "- Be direct. No filler words. No disclaimers.\n\n"
             "Example format:\n"
-            "Here are the SKUs to order today:\n"
-            "1. SKU-606 | 160 units | QuickParts Inc. | ATL-01\n"
-            "2. SKU-303 | 100 units | Northwind Supply | DAL-01"
+            "Here are the inventory issues:\n"
+            "1. SKU-606 | Low Stock | 58 units on hand | ATL-01\n"
+            "2. SKU-505 | Damaged | 489 units on hand | ATL-01"
         )
 
     # --- Prompt Template ---
