@@ -451,6 +451,25 @@ Question: {question}
     ]
     for phrase in cleanup_phrases:
         answer = answer.replace(phrase, "").strip()
+    
+    # --- Mask company names for demo (avoid legal issues) ---
+    company_masks = {
+        "Toyota": "Acme Motors",
+        "Sapura Energy": "Luminary Tech",
+        "Staples": "Aether Dynamics",
+        "Samsung": "Novus Supply Co",
+        "KLK Plantation": "Terraform Resources",
+        "Penske": "Apex Solutions",
+        "Vespar": "Stratas Global",
+        "Vantris": "Vanguard Systems",
+        "QuickParts Inc.": "Velocity Parts",
+        "QuickParts": "Velocity Parts",
+        "Northwind Supply": "Horizon Supply",
+        "Northwind": "Horizon Supply",
+        "Quimica Amparo": "ChemFlow Industries",
+    }
+    for real_name, masked_name in company_masks.items():
+        answer = answer.replace(real_name, masked_name)
 
     # --- Parse into structured response ---
     structured_response = parse_llm_response_to_structured(answer, intent)
