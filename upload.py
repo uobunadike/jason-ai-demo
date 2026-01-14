@@ -22,17 +22,17 @@ def upload_directory(local_dir: str, blob_prefix: str = ""):
 
             with open(local_path, "rb") as data:
                 container_client.upload_blob(name=blob_name, data=data, overwrite=True)
-                print(f"✅ Uploaded: {blob_name}")
+                print(f"[OK] Uploaded: {blob_name}")
 
 def main():
     if not AZURE_CONN_STRING:
-        raise ValueError("❌ Missing Azure connection string (AZURE_STORAGE_CONN_STRING).")
+        raise ValueError("[ERROR] Missing Azure connection string (AZURE_STORAGE_CONN_STRING).")
 
-    print("🚀 Uploading all FAISS indexes...")
+    print("[INFO] Uploading all FAISS indexes...")
     upload_directory("faiss_index", blob_prefix="faiss_index")
-    print("✅ All FAISS indexes uploaded successfully.")
+    print("[OK] All FAISS indexes uploaded successfully.")
 
-    print("🚀 Uploading all data files...")
+    print("[INFO] Uploading all data files...")
     upload_directory("data", blob_prefix="data")
-    print("✅ All data files uploaded successfully.")
+    print("[OK] All data files uploaded successfully.")
 

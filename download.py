@@ -13,7 +13,7 @@ def download_directory(blob_prefix: str, local_dir: str):
     container_client = blob_service_client.get_container_client(CONTAINER_NAME)
     os.makedirs(local_dir, exist_ok=True)
 
-    print(f"⬇️  Downloading from prefix '{blob_prefix}' into '{local_dir}'...")
+    print(f"[INFO] Downloading from prefix '{blob_prefix}' into '{local_dir}'...")
 
     blobs = container_client.list_blobs(name_starts_with=blob_prefix)
     found_any = False
@@ -27,18 +27,18 @@ def download_directory(blob_prefix: str, local_dir: str):
         with open(local_path, "wb") as f:
             blob_data = container_client.download_blob(blob.name)
             f.write(blob_data.readall())
-        print(f"✅ Downloaded: {blob.name}")
+        print(f"[OK] Downloaded: {blob.name}")
 
     if not found_any:
-        print(f"⚠️ No blobs found under prefix '{blob_prefix}'")
+        print(f"[WARN] No blobs found under prefix '{blob_prefix}'")
 
 def main():
     if not AZURE_CONN_STRING:
-        raise ValueError("❌ Missing Azure connection string (AZURE_STORAGE_CONN_STRING).")
+        raise ValueError("[ERROR] Missing Azure connection string (AZURE_STORAGE_CONN_STRING).")
 
-    print("🚀 Downloading all FAISS indexes from Azure Blob...")
+    print("[INFO] Downloading all FAISS indexes from Azure Blob...")
     download_directory("faiss_index", FAISS_DIR)
-    print("✅ All FAISS indexes downloaded successfully.")
+    print("[OK] All FAISS indexes downloaded successfully.")
 
 if __name__ == "__main__":
     main()
