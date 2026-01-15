@@ -1,10 +1,46 @@
+# Python
 __pycache__/
-.env
-*.sqlite3
-*.pyc
-*.pyo
-#*.xlsx
-#*.csv
-.DS_Store
-.env.*
+*.py[cod]
+*$py.class
+*.so
+.Python
 venv/
+env/
+.venv/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment
+.env
+.env.local
+
+# Temp files
+~$*
+*.tmp
+*.temp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Build
+dist/
+build/
+*.egg-info/
+
+# Archive (old files)
+archive/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Local testing
+*.local.*
